@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.or.livestock.mapper.user_info_mapper">
+    <select id="sign_in" parameterType="kr.or.livestock.entity.user_info" resultType="kr.or.livestock.entity.user_info">
+        select user_id, user_pw from user_info where #{user_id} and #{user_pw}
+    </select>
+    
+    <insert id="sign_up" parameterType="kr.or.livestock.entity.user_info">
+        insert into user_info (user_id, user_pw, user_name, user_gender, user_phone, user_farm_addr, user_joindate, admin_yn) values (user_id, user_pw, user_name, user_gender, user_phone, user_farm_addr, now(), admin_yn)
+    </insert>
     
 </mapper>

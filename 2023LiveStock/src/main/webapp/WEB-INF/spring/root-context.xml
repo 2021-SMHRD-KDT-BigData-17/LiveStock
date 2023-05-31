@@ -9,9 +9,9 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 	 	<property name="driverClassName" value="com.mysql.jdbc.Driver"/>   
-	 	<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/mysql?useSSL=false&amp;serverTimezone=UTC"/>   
-	 	<property name="username" value="root"/>   
-	 	<property name="password" value="12345"/>   
+	 	<property name="jdbcUrl" value="jdbc:mysql://project-db-stu.smhrd.com:3307/mysql?useSSL=false&amp;serverTimezone=UTC"/>   
+	 	<property name="username" value="JB"/>   
+	 	<property name="password" value="123456"/>   
 	</bean>
 	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
 	    <constructor-arg ref="hikariConfig"/>
@@ -19,7 +19,7 @@
 	<bean class="org.mybatis.spring.SqlSessionFactoryBean">
 	    <property name="dataSource" ref="dataSource"/>
 	</bean>	
-	<mybatis-spring:scan base-package="kr.board.mapper"/>
+	<mybatis-spring:scan base-package="kr.or.livestock.mapper"/>
 </beans>
 
 <!-- connection pool -->

@@ -26,6 +26,8 @@ public class m_controller {
 		
 		mapper.sign_in(user);
 		
+		System.out.println(2);
+		
 		return "redirect:/resources/HTML/index.html";
 	}
 	

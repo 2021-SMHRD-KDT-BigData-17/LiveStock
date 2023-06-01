@@ -7,10 +7,10 @@ import lombok.Setter;
 @Setter
 public class livcestock_info {
 
-	int livestock_id;
-	String livestock_name;
-	int livestock_cnt;
-	String livestock_etc;
-	String user_id;
+	private int livestock_id;
+	private String livestock_name;
+	private int livestock_cnt;
+	private String livestock_etc;
+	private String user_id;
 	
 }

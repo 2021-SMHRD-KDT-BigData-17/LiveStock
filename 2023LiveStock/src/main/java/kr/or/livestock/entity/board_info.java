@@ -7,13 +7,13 @@ import lombok.Setter;
 @Setter
 public class board_info {
 
-	int board_id;
-	String board_category;
-	String board_title;
-	String board_content;
-	String board_file;
-	String board_dt;
-	String user_id;
-	int board_views;
+	private int board_id;
+	private String board_category;
+	private String board_title;
+	private String board_content;
+	private String board_file;
+	private String board_dt;
+	private String user_id;
+	private int board_views;
 	
 }

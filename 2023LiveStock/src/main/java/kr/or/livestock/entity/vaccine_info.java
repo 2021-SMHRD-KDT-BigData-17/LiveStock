@@ -7,11 +7,11 @@ import lombok.Setter;
 @Setter
 public class vaccine_info {
 
-	int vaccine_id;
-	int livestock_id;
-	String vaccine_name;
-	int vaccine_cnt;
-	String vaccine_dt;
-	String vaccine_yn;
-	String reg_dt;
+	private int vaccine_id;
+	private int livestock_id;
+	private String vaccine_name;
+	private int vaccine_cnt;
+	private String vaccine_dt;
+	private String vaccine_yn;
+	private String reg_dt;
 }

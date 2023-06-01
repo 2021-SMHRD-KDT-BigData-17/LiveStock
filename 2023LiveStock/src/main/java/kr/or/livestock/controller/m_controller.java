@@ -17,7 +17,13 @@ public class m_controller {
 		
 		mapper.sign_in();
 		
-		return "";
+		return "index";
+	}
+	
+	@RequestMapping("/")
+	public String main() {
+		
+		return "index";
 	}
 	
 }

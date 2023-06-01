@@ -7,10 +7,10 @@ import lombok.Setter;
 @Setter
 public class comment_info {
 
-	int cmt_id;
-	int board_id;
-	int cmt_content;
-	String cmt_dt;
-	String user_id;
+	private int cmt_id;
+	private int board_id;
+	private int cmt_content;
+	private String cmt_dt;
+	private String user_id;
 	
 }

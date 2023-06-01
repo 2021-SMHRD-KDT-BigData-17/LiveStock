@@ -7,12 +7,12 @@ import lombok.Setter;
 @Setter
 public class entrance_info {
 	
-	int entrance_id;
-	String vehicle_no;
-	String plate_photo;
-	String entrance_dt;
-	String entrance_type;
-	String entrance_time;
-	String enctrance_etc;
+	private int entrance_id;
+	private String vehicle_no;
+	private String plate_photo;
+	private String entrance_dt;
+	private String entrance_type;
+	private String entrance_time;
+	private String enctrance_etc;
 	
 }

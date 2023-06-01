@@ -7,10 +7,10 @@ import lombok.Setter;
 @Setter
 public class crwaling_info {
 
-	int crawling_id;
-	String livestock_name;
-	String disease_name;
-	String breaking_dt;
-	int breaking_cnt;
+	private int crawling_id;
+	private String livestock_name;
+	private String disease_name;
+	private String breaking_dt;
+	private int breaking_cnt;
 	
 }

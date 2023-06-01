@@ -7,10 +7,10 @@ import lombok.Setter;
 @Setter
 public class infection_info {
 
-	int infection_id;
-	int livestock_id;
-	String disease_name;
-	int infected_cnt;
-	String infected_dt;
+	private int infection_id;
+	private int livestock_id;
+	private String disease_name;
+	private int infected_cnt;
+	private String infected_dt;
 	
 }

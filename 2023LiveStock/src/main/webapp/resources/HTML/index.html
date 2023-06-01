@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/b32c894376.js" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="/resources/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap" rel="stylesheet">
+    <title>lifestock</title>
+</head>
+<body>
+    <div id="wrap">
+        <header id="header">
+                <nav class="navbar">
+                    <div class="navbar_logo">
+                        <i class="fa-solid fa-guarani-sign"></i>
+                        <a href="">FRAM GUARD</a>
+                    </div>
+
+                    <ul class="navbar_menu">
+                        <li><a href="">HOME</a></li>
+                        <li><a href="">농장관리</a></li>
+                        <li><a href="">캘린더</a></li>
+                        <li><a href="">차량 출입 관리</a></li>
+                        <li><a href="">커뮤니티</a></li>
+                        <button class = "binLogin-popup"><a href="/livestock/resources/HTML/login.html">Login</a></button>
+                    </ul>
+                    
+                    <a href="#" class="navbar_toggleBtn">
+                        <i class="fa-solid fa-bars"></i>
+                    </a>
+                </nav>
+        </header>
+        <div class="topbar">
+            <div class="logo">가축 전염병 현황</div>
+        </div>
+        <!-- <div class="sidebar">
+            <ul>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-chart-line"></i>
+                        <div>Dashboard</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-guarani-sign"></i>
+                        <div>Farm Guard란?</div>
+                    </a>
+                </li>
+            </ul>
+        </div> -->
+        <div class="main">
+            <div class="cards">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="number">1217</div>
+                        <div class="card-name">소</div>
+                    </div>
+                    <div class="icon-box">
+                        <img src="/IMG/cow.png" alt="">
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="number">1217</div>
+                        <div class="card-name">돼지</div>
+                    </div>
+                    <div class="icon-box">
+                        <img src="/IMG/pig.png" alt="">
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="number">1217</div>
+                        <div class="card-name">닭</div>
+                    </div>
+                    <div class="icon-box">
+                        <img src="/IMG/chicken.png" alt="">
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="number">1217</div>
+                        <div class="card-name">오리</div>
+                    </div>
+                    <div class="icon-box">
+                        <img src="/IMG/duck.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="charts">
+                <div class="chart">
+                    <h2>월별현황(past 12 months)</h2>
+                    <canvas id="myChart"></canvas>
+                </div>
+                <div class="chart" id="doughnut-chart">
+                    <h2>전체비율</h2>
+                    <div class="chart-container">
+                        <canvas id="pie"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class = 'map'>
+                <div class = "live_map"><h1>가축현황지도</h1></div>
+            </div>
+        </div>
+        <footer id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="footer">
+                        <ul>
+                            <li><a href="#">사이트 도움말</a></li>
+                            <li><a href="#">사이트 이용약관</a></li>
+                            <li><a href="#">사이트 운영원칙</a></li>
+                            <li><a href="#"><strong>개인정보취급방침</strong></a></li>
+                            <li><a href="#">책임의 한계와 법적고지</a></li>
+                            <li><a href="#">게시중단요청서비스</a></li>
+                            <li><a href="#">고객센터</a></li>
+                        </ul>
+                        <address>
+                            Copyright &copy;
+                            <a href="#"><strong>livestock</strong></a>
+                            All Rights Reserved.
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    
+    </div>
+
+    <!-- chart JS link -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"></script>
+    <script src="/JS/chart1.js"></script>
+    <script src="/JS/chart2.js"></script>
+    <script src="/JS/map.js"></script>
+</body>
+<script src="/JS/index.js"></script>
+</html>

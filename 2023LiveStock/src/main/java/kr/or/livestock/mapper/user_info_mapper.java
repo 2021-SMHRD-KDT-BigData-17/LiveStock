@@ -7,8 +7,8 @@ import kr.or.livestock.entity.user_info;
 @Mapper
 public interface user_info_mapper {
 
-	public user_info sign_in();
+	public user_info sign_in(user_info user);
 	
-	public int sign_up();
+	public int sign_up(user_info user);
 	
 }

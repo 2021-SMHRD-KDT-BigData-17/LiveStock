@@ -24,9 +24,9 @@ public class m_controller {
 	@RequestMapping("/login")
 	public String login(user_info user) {
 		
-		mapper.sign_in(user);
+		user_info u = mapper.sign_in(user);
 		
-		System.out.println(2);
+		System.out.println(u.getUser_id() + " " + u.getUser_pw());
 		
 		return "redirect:/resources/HTML/index.html";
 	}

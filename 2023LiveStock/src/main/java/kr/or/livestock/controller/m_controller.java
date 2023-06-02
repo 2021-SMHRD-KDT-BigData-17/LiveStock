@@ -18,7 +18,7 @@ public class m_controller {
 	@RequestMapping("/")
 	public String main(Model model) {
 	
-		return "redirect:/resources/HTML/index.html";
+		return "flask";
 	}
 	
 	@RequestMapping("/login")

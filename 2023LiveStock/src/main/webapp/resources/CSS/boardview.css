@@ -1,0 +1,347 @@
+
+
+@font-face {
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+body{
+    padding: 0;
+    margin: 0px 0px 0px 0px;
+    font-family: 'NanumSquareNeo-Variable';
+    min-height: auto;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 8px 20px;
+    /* border-bottom: 1px solid #d3d3d3; */
+   
+}
+
+.navbar_logo{
+    font-size: 24px;
+    color: #99CCFF;
+    font-family: 'Pretendard-Regular';
+    font-weight: 1000;
+}
+
+.navbar_logo a{
+    font-size: 24px;
+    color: #99CCFF;
+    font-family: 'Pretendard-Regular';
+    font-weight: 1000;
+}
+
+.navbar_logo i{
+    color: #99CCFF;
+    font-size: 25px;
+}
+
+.navbar_menu{
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+}
+
+.navbar_menu li{
+    padding: 8px 12px;
+}
+
+.navbar_menu li:hover{
+    color: white;
+    background-color: #99CCFF;
+    border-radius: 4px;
+}
+
+.binLogin-popup{
+    padding: 8px 12px;
+    width: 90px;
+    background: transparent;
+    outline: none;
+    border-radius: 6px;
+    border: 0px;
+    cursor: pointer;
+    font-size: 1em;
+    color: black
+}
+
+.binLogin-popup:hover{
+    color: white;
+    background-color: #99CCFF;
+    border-radius: 4px;
+}
+
+.navbar_toggleBtn{
+    position: absolute;
+    right: 32px;
+    top: 10px;
+    display: none;
+
+}
+
+.topbar{
+    display: flex;
+    color: white;
+    background: #99CCFF; 
+    /* box-shadow: 0 4px 8px rgba(0,0,0,0.08); */
+    width: 100%;
+    height: 60px;
+    display: grid;
+    align-items: center;
+    text-align: center;
+    z-index: 1;
+    margin: 0;
+}
+
+.topbar .logo{
+    font-size: 22px;
+    font-weight: 500;
+    
+}
+
+.nav_menu {
+    display: flex;
+    margin-left: 10px;
+}
+
+.nav_menu ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav_menu ul li:first-child {
+    padding: 19px;
+    margin-left: 50px;
+    font-size: 17px;
+}
+
+.nav_menu li:nth-child(2){
+    padding: 19px;
+    color: #99CCFF;
+    margin-left: 17px;
+    margin-right: 60px;
+    font-size: 17px;
+    font-weight: 600;
+    border: 2px solid #FCFDFE;
+    z-index: 1;
+}
+
+.nav_menu a{
+    text-decoration: none;
+    color: #99CCFF;
+}
+
+.nav_menu a:nth-child(1){
+    color: #fff;
+}
+
+a{
+    text-decoration: none;
+    color:inherit
+
+}
+
+/* 콘텐츠 부분 */
+
+.board_wrap{
+    width:1300px;
+    margin:100px auto;
+}
+
+.talk{
+    width: 35px;
+    height: 35px;
+}   
+
+.board_title{
+    margin-bottom: 30px;
+
+}
+
+.board_title strong{
+    font-size: 30px;
+}
+
+.board_title p{
+    margin-top: 15px;
+    font-size: 13px;
+}
+
+.board_view{
+    width: 100%;
+    border-top: 2px solid #99CCFF;
+}
+
+.board_view .title {
+    padding: 20px 15px;
+    border-bottom: 1px dashed #ddd;
+    font-size: 23px;
+}
+
+.board_view .info{
+    padding: 15px;
+    border-bottom: 1px solid #999;
+    font-size: 0;
+
+}
+
+.board_view .info dl{
+    position: relative;
+    display: inline-block;
+    padding: 0 20px;
+}
+
+.board_view .info dl:first-child{
+    padding-left:0;
+}
+
+.board_view .info dl::before{
+    display: block;
+    position: absolute;
+    top: 1px;
+    left: 0;
+    content: '';
+    width: 1px;
+    height: 13px;
+    background: #99CCFF;
+}
+
+.board_view .info dl:first-child:before{
+    display: none;
+
+}
+
+.board_view .info dl dt,
+.board_view .info dl dd{
+    display: inline-block;
+    font-size: 17px;
+}
+
+.board_view .info dl dd{
+    margin-left: 10px;
+    color: #777;
+}
+
+.board_view .cont{
+    padding: 15px;
+    border-bottom: 1px solid #999;
+    line-height: 160%;
+    font-size: 17px;
+}
+
+
+/* 댓글 */
+
+#form-commentInfo{
+    width: 100%;
+    margin-top: 10px;
+}
+
+#comment-count{
+    margin-bottom: 10px; 
+}
+
+#comment-input{
+    width: 60%;
+    height: 4.3em;
+}
+
+#submit{
+    background-color: #99CCFF;
+    width: 4.5em;
+    height: 2.3em;;
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff;
+}
+
+#comments{
+    margin-top: 15px;
+}
+
+.eachComment{   
+    width :50%; 
+    margin: 10px;  
+    padding: 0.5em; 
+    border-bottom: 1px solid #c1bcba;
+}
+
+.eachComment .name{
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 0.3em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.eachComment .inputValue{
+    font-size: 1.2em;
+    font-style: italic;    
+}
+
+.eachComment .time{
+    font-size: 0.7em;
+    color: #c1bcba;
+    font-style: oblique;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    
+}
+
+.eachComment .voteDiv{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.eachComment .deleteComment{
+    background-color: #99CCFF;
+    color: aliceblue;
+}
+
+
+
+/* 버튼 */
+
+.bt_wrap{
+    margin-top: 30px;
+    text-align: right;
+    font-size: 0;
+}
+
+.bt_wrap a{
+    display: inline-block;
+    min-width: 80px;
+    padding: 10px;
+    border:  1px solid #99CCFF;
+    border-radius: 2px;
+    font-size: 10px;
+    text-align: center;
+}
+
+.bt_wrap .on{
+    background: #99CCFF;
+    color: #fff;
+    margin-right: 10px;
+
+}
+
+

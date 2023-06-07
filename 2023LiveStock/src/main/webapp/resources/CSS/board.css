@@ -1,0 +1,120 @@
+@import url(boardstyle.css);
+@import url(boardmedia.css);
+
+
+@font-face {
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+body{
+    padding: 0;
+    margin: 0px 0px 0px 0px;
+    font-family: 'NanumSquareNeo-Variable';
+    min-height: auto;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 8px 20px;
+    /* border-bottom: 1px solid #d3d3d3; */
+   
+}
+
+.navbar_logo{
+    font-size: 24px;
+    color: #99CCFF;
+    font-family: 'Pretendard-Regular';
+    font-weight: 1000;
+}
+
+.navbar_logo a{
+    font-size: 24px;
+    color: #99CCFF;
+    font-family: 'Pretendard-Regular';
+    font-weight: 1000;
+}
+
+.navbar_logo i{
+    color: #99CCFF;
+    font-size: 25px;
+}
+
+.navbar_menu{
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+}
+
+.navbar_menu li{
+    padding: 8px 12px;
+}
+
+.navbar_menu li:hover{
+    color: white;
+    background-color: #99CCFF;
+    border-radius: 4px;
+}
+
+.binLogin-popup{
+    padding: 8px 12px;
+    width: 90px;
+    background: transparent;
+    outline: none;
+    border-radius: 6px;
+    border: 0px;
+    cursor: pointer;
+    font-size: 1em;
+    color: black
+}
+
+.binLogin-popup:hover{
+    color: white;
+    background-color: #99CCFF;
+    border-radius: 4px;
+}
+
+.navbar_toggleBtn{
+    position: absolute;
+    right: 32px;
+    top: 10px;
+    display: none;
+
+}
+
+.topbar{
+    display: flex;
+    color: white;
+    background: #99CCFF; 
+    /* box-shadow: 0 4px 8px rgba(0,0,0,0.08); */
+    width: 100%;
+    height: 60px;
+    display: grid;
+    align-items: center;
+    text-align: center;
+    z-index: 1;
+    margin: 0;
+}
+
+.topbar .logo{
+    font-size: 22px;
+    font-weight: 500;
+    
+}
+

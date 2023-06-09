@@ -1,0 +1,156 @@
+.box {
+    float: left;
+    background: #99CCFF;
+    width: 100%;
+    height: 60px;
+    display: flex;
+
+
+}
+
+.box2 {
+    background: white;
+    width: 100%;
+    height: 100%;
+    display: flex;
+
+}
+
+button[class=reload]{  padding: 10px 15px;
+  float: right;
+  background: white;
+  color: black;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.15s ease-in-out,
+              color 0.15s ease-in-out;
+  display: grid;
+  text-align: center;
+
+}
+
+button:hover{
+  background: #444;
+  color: white;
+}
+
+
+
+
+body{
+    margin: 0;
+    padding: 0;
+    background: #f5f5f5;
+    
+}
+
+.sidebar{
+    margin-top: 250px;
+    
+    padding: 0;
+    height: 100%;
+    width: 1500px;
+    position: fixed;
+    z-index:-1;
+    top: 0;
+    left: 0;
+    z-index: 107;
+    left: 10%;
+
+}
+
+caption{
+    
+    font-size: 30px;
+    background: white;
+    padding: 30px;
+    font-weight: bold;
+    border-top: 1px solid rgba(0,0,0,.1);
+    
+    
+}
+
+  
+  table {
+    border: 1px #99CCFF;
+    font-size: .9em;
+    margin-top: 80px;
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 5px;
+    overflow: hidden;
+    text-align: center;
+  }
+  
+  th {
+    text-align: center;
+  }
+    
+  thead {
+    font-weight: bold;
+    color: #fff;
+    background: #99CCFF;
+    font-size: 18px;
+  }
+    
+   td, th {
+    padding: 1em .5em;
+    vertical-align: middle;
+  }
+    
+   td {
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    background: #fff;
+  }
+  
+  a {
+    color: #73685d;
+  }
+    
+   @media all and (max-width: 768px) {
+      
+    table, thead, tbody, th, td, tr {
+      display: block;
+    }
+    
+    th {
+      text-align: center;
+    }
+    
+    table {
+      position: relative; 
+      padding-bottom: 0;
+      border: none;
+      box-shadow: 0 0 10px rgba(0,0,0,.2);
+    }
+    
+    thead {
+      float: left;
+      white-space: nowrap;
+    }
+    
+    tbody {
+      overflow-x: auto;
+      overflow-y: hidden;
+      position: relative;
+      white-space: nowrap;
+    }
+    
+    tr {
+      display: inline-block;
+      vertical-align: top;
+    }
+    
+    th {
+      border-bottom: 1px solid #a39485;
+    }
+    
+    td {
+      border-bottom: 1px solid #e5e5e5;
+    }
+    
+    
+    }
+

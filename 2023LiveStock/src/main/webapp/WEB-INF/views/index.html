@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,7 +27,7 @@
                         <li><a href="">캘린더</a></li>
                         <li><a href="">차량 출입 관리</a></li>
                         <li><a href="/livestock/board">커뮤니티</a></li>
-                        <button class = "binLogin-popup"><a href="/livestock/login">Login</a></button>
+                        <button class = "binLogin-popup" sec:authorize="isAnonymous()"><a href="/livestock/login">Login</a></button>
                     </ul>
                     
                     <a href="#" class="navbar_toggleBtn">
@@ -62,7 +62,7 @@
                         <div class="card-name">소</div>
                     </div>
                     <div class="icon-box">
-                        <img src="/IMG/cow.png" alt="">
+                        <img src="/livestock/resources/IMG/cow.png" alt="">
                     </div>
                 </div>
                 <div class="card">
@@ -71,7 +71,7 @@
                         <div class="card-name">돼지</div>
                     </div>
                     <div class="icon-box">
-                        <img src="/IMG/pig.png" alt="">
+                        <img src="/livestock/resources/IMG/pig.png" alt="">
                     </div>
                 </div>
                 <div class="card">
@@ -80,7 +80,7 @@
                         <div class="card-name">닭</div>
                     </div>
                     <div class="icon-box">
-                        <img src="/IMG/chicken.png" alt="">
+                        <img src="/livestock/resources/IMG/chicken.png" alt="">
                     </div>
                 </div>
                 <div class="card">
@@ -89,7 +89,7 @@
                         <div class="card-name">오리</div>
                     </div>
                     <div class="icon-box">
-                        <img src="/IMG/duck.png" alt="">
+                        <img src="/livestock/resources/IMG/duck.png" alt="">
                     </div>
                 </div>
             </div>
@@ -136,9 +136,9 @@
 
     <!-- chart JS link -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"></script>
-    <script src="/JS/chart1.js"></script>
-    <script src="/JS/chart2.js"></script>
-    <script src="/JS/map.js"></script>
+    <script src="/livestock/resources/JS/chart1.js"></script>
+    <script src="/livestock/resources/JS/chart2.js"></script>
+    <script src="/livestock/resources/JS/map.js"></script>
 </body>
-<script src="/JS/index.js"></script>
+<script src="/livestock/resources/JS/index.js"></script>
 </html>

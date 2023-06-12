@@ -3,6 +3,7 @@ package kr.or.livestock.controller;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,6 +24,15 @@ public class mainController {
 	@RequestMapping("/")
 	public String main(Model model, RedirectAttributes reat) {
 	
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		
+		if(principal != null) {
+			
+			model.addAttribute("NN", (String)principal);
+			
+		}
+        
+		
 //		model.addAttribute("thymeleaf", 1);
 		
 //		int n = 1;
@@ -44,15 +54,17 @@ public class mainController {
 	@RequestMapping("/login")
 	public void login() {}
 	
-	@RequestMapping("/login.do")
-	public String loginDo(user_info user) {
-		
-		user_info u = mapper.sign_in(user);
-		
-		System.out.println(u.getUser_id() + " " + u.getUser_pw());
-		
-		return "index";
-	}
+//	@RequestMapping("/login.do")
+//	public String loginDo(user_info user) {
+//		
+//		String user_id = user.getUser_id();
+//		
+//		user_info u = mapper.sign_in(user_id);
+//		
+//		System.out.println(u.getUser_id() + " " + u.getUser_pw());
+//		
+//		return "index";
+//	}
 	
 	@RequestMapping("/registet")
 	public void register() {}

@@ -42,6 +42,15 @@
 	  <!-- ypes, so this flag is "false" by default for safer backwards            -->
 	  <!-- compatibility.                                                          -->
 	  <beans:property name="enableSpringELCompiler" value="true" />
+	  
+	  
+    <beans:property name="additionalDialects">
+        <beans:set>
+            <beans:bean class="org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect"/>
+        </beans:set>
+    </beans:property>
+
+	  
 	</beans:bean>
 	
 	<beans:bean class="org.thymeleaf.spring4.view.ThymeleafViewResolver">

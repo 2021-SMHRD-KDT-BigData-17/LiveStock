@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.livestock.mapper.board_info_mapper">
+    
+    <select id="load" resultType="kr.or.livestock.entity.board_info">
+        select * from board_info limit 10
+    </select>
+    
+    <insert id="write" parameterType="kr.or.livestock.entity.board_info">
+        insert into board_info (board_category, board_title, board_content, board_file, board_dt, user_id, board_views) values ("category", #{board_title}, #{board_content}, "file", now(), "id", 0)
+    </insert>
+    
+</mapper>

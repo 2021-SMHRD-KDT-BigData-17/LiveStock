@@ -15,7 +15,7 @@
 
 body{
     display: block;
-    background: url('/IMG/livestock.jpg');
+    background: url('/livestock/resources/IMG/livestock.jpg');
     background-position:center center;
     justify-content: space-between;
     height: 950px;

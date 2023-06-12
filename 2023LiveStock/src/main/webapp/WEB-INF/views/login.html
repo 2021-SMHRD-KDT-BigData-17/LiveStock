@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,13 +26,14 @@
             </a>
         </nav>
     </header>
+    <span th:unless="${session.isEmpty()}" th:text="${session.SPRING_SECURITY_LAST_EXCEPTION}"></span>
     <div class="wrapper active">
         <span class = "icon_close">
             <ion-icon name="close-outline"></ion-icon>
         </span>
         <div class="form_box_login">
             <h2>Login</h2>
-            <form action="/livestock/login.do">
+            <form th:action="@{/login.do}" method="post">
                 <div class="input_box">
                     <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
                     <input type="Id" name="user_id" required>

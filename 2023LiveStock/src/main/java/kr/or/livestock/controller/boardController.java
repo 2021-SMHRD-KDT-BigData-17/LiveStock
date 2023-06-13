@@ -31,6 +31,11 @@ public class boardController {
 //		return "board";
 	}
 	
+	@RequestMapping("/board/{page}")
+	public void board(Model model) {
+		
+	}
+	
 	@RequestMapping("/boardedit/{board_id}")
 	public void boardedit(@PathVariable int board_id, Model model) {
 		board_info board = mapper.view(board_id);
@@ -74,8 +79,5 @@ public class boardController {
 		
 		return String.format("redirect:/boardview.do/%d", board_id);
 	}
-	
-
-	
 	
 }

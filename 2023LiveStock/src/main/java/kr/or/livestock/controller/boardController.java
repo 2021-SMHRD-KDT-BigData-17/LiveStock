@@ -21,7 +21,9 @@ public class boardController {
 	
 	@RequestMapping("/board")
 	public void board(Model model) {
+		String category = "general";
 		
+//		List<board_info> list = mapper.load(category);
 		List<board_info> list = mapper.load();
 		
 		model.addAttribute("board", list);
@@ -45,7 +47,13 @@ public class boardController {
 	}
 	
 	@RequestMapping("/boardnotice")
-	public void boardnotice() {}
+	public void boardnotice(Model model) {
+		String category = "notice";
+		
+		List<board_info> list = mapper.notice(category);
+		
+		model.addAttribute("list", list);
+	}
 	
 	@RequestMapping("/boardview.do/{board_id}")
 	public void boardview(@PathVariable int board_id, Model model) {
@@ -60,11 +68,11 @@ public class boardController {
 	@RequestMapping("/boardwrite.do")
 	public String boardwriteDo(board_info board) {
 		
-		mapper.write(board);
+		int board_id = mapper.write(board);
 		
 		// board_id
 		
-		return String.format("redirect:/boardview.do/%d", board.getBoard_id());
+		return String.format("redirect:/boardview.do/%d", board_id);
 	}
 	
 

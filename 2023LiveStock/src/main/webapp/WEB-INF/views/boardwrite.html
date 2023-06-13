@@ -36,8 +36,8 @@
     <div class="topbar">
         <div class="nav_menu">
             <ul>
-                <li><a href="/livestock/resources/HTML/boardnotice.html">공지사항</a></li>
-                <li><a href="/livestock/resources/HTML/board.html">농장이야기</a></li>
+                <li><a th:href="@{/boardnotice}">공지사항</a></li>
+                <li><a th:href="@{/board}">농장이야기</a></li>
             </ul>    
         </div>
     </div>
@@ -58,16 +58,16 @@
                 <div class="info">
                     <dl>
                         <dt>작성자</dt>
-                        <dd><input type="text" placeholder="글쓴이 입력" name="user_id"></dd>
+                        <dd><input type="text" placeholder="글쓴이 입력" name="user_id" th:value="${#authentication.principal}"></dd>
                     </dl>
                     <dl>
                         <dt>카테고리</dt>
-                        <dd><input type="text" placeholder="카테고리 입력" name="board_category"></dd>
+                        <dd><input type="text" placeholder="카테고리 입력" name="board_category" value=""></dd>
                     </dl>
-                    <dl>
+                    <!-- <dl>
                         <dt>비밀번호</dt>
-                        <dd><input type="password" placeholder="비밀번호 입력" name="user_pw"></dd>
-                    </dl>
+                        <dd><input type="text" placeholder="비밀번호 입력" name="board_id"></dd>
+                    </dl> -->
                 </div>
                 <div class="cont">
                     <textarea placeholder="내용 입력" name="board_content"></textarea>
@@ -76,7 +76,7 @@
         </div>
         
             <div class="bt_wrap">
-                <a href="/livestock/boardwrite.do" class="on">등록</a>
+                <a th:href="@{/boardwrite.do}" class="on">등록</a>
 
             </div>
         </div>

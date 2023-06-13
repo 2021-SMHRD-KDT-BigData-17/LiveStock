@@ -39,8 +39,8 @@
     <div class="topbar">
         <div class="nav_menu">
             <ul>
-                <li><a href="/livestock/resources/HTML/boardnotice.html">공지사항</a></li>
-                <li><a href="/livestock/resources/HTML/board.html">농장이야기</a></li>
+                <li><a th:href="@{/boardnotice}">공지사항</a></li>
+                <li><a th:href="@{/board}">농장이야기</a></li>
             </ul>    
         </div>
     </div>
@@ -61,13 +61,13 @@
                 </div>
                 <div>
                     <div class = "num" name = "board_id">8</div>
-                    <div class = "title" name = "board_title"><a href="/livestock/resources/HTML/boardview.html">글 제목이 들어갑니다.</a></div>
+                    <div class = "title" name = "board_title"><a th:href="@{/boardview}">글 제목이 들어갑니다.</a></div>
                     <div class = "writer" name = "user_id">김이름</div>
                     <div class = "date"  name="board_dt">2023.06.02</div>
                     <div class = "count" name="board_views">0</div>
                 </div>
                 
-                <div>
+               <!-- <div>
                     <div class = "num" name = "board_id">7</div>
                     <div class = "title" name = "board_title"><a href="/livestock/resources/HTML/boardview.html">글 제목이 들어갑니다.</a></div>
                     <div class = "writer" name = "user_id">김이름</div>
@@ -115,7 +115,7 @@
                     <div class = "writer" name = "user_id">김이름</div>
                     <div class = "date"  name="board_dt">2023.06.02</div>
                     <div class = "count" name="board_views">0</div>
-                </div>
+                </div> --> 
                
             </div>
             <div class="board_page">

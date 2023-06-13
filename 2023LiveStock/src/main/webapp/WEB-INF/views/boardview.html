@@ -36,8 +36,8 @@
     <div class="topbar">
         <div class="nav_menu">
             <ul>
-                <li><a href="/livestock/resources/HTML/boardnotice.html">공지사항</a></li>
-                <li><a href="/livestock/resources/HTML/board.html" class="sky">농장이야기</a></li>
+                <li><a th:href="@{/boardnotice}">공지사항</a></li>
+                <li><a th:href="@{/board}">농장이야기</a></li>
             </ul>    
         </div>
     </div>
@@ -85,8 +85,8 @@
                 </div>
             </div>
             <div class="bt_wrap">
-                <a href="/livestock/resources/HTML/board.html" class="on">목록</a>
-                <a href="/livestock/resources/HTML/boardedit.html">수정</a>
+                <a th:href="@{/board}" class="on">목록</a>
+                <a th:href="@{/boardedit}" th:if="${#authentication.principal == board.user_id}">수정</a>
     
             </div>
             <div id="form-commentInfo">

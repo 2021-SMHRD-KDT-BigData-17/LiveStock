@@ -16,15 +16,16 @@
         <nav class="navbar">
             <div class="navbar_logo">
                 <i class="fa-solid fa-guarani-sign"></i>
-                <a href="/HTML/index.html">FRAM GUARD</a>
+                <a th:href="@{/}">FRAM GUARD</a>
             </div>
 
             <ul class="navbar_menu">
-                <li><a href="/livestock/index.html">HOME</a></li>
-                <li><a href="">캘린더</a></li>
-                <li><a href="">차량 출입 관리</a></li>
-                <li><a href="/livestock/board.html">커뮤니티</a></li>
-                <button class = "binLogin-popup"><a href="/livestock/login.html">Login</a></button>
+                <li><a th:href="@{/}">HOME</a></li>
+                <li><a th:href="@{/farming}">농장관리</a></li>
+                <li><a th:href="@{/calander}">캘린더</a></li>
+                <li><a th:href="@{/}">차량 출입 관리</a></li>
+                <li><a th:href="@{/board}">커뮤니티</a></li>
+                <button class = "binLogin-popup" sec:authorize="isAnonymous()"><a th:href="@{/login}">Login</a></button>
             </ul>
             
             <a href="#" class="navbar_toggleBtn">
@@ -57,7 +58,7 @@
                 <div class="info">
                     <dl>
                         <dt>작성자</dt>
-                        <dd><input type="text" placeholder="글쓴이 입력" value="김이름" name="user_id"></dd>
+                        <dd><input type="text" placeholder="글쓴이 입력" th:value="${#authnetication.principal}" name="user_id" readonly></dd>
                     </dl>
                     <dl>
                         <dt>카테고리</dt>

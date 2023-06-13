@@ -24,6 +24,8 @@ public class user_info implements UserDetails {
 	private String AUTHORITY = "ROLE_USER";
 	private boolean ENABLED = true;
 	
+	private addr addr;
+	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
         ArrayList<GrantedAuthority> auth = new ArrayList<GrantedAuthority>();
@@ -108,6 +110,14 @@ public class user_info implements UserDetails {
 	}
 	public void setAdmin_yn(String admin_yn) {
 		this.admin_yn = admin_yn;
+	}
+	
+	public addr getAddr() {
+		return addr;
+	}
+
+	public void setAddr(addr addr) {
+		this.addr = addr;
 	}
 	
 }

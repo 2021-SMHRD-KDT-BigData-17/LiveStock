@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -28,12 +29,31 @@ public class boardController {
 //		return "board";
 	}
 	
-	@RequestMapping("/boardedit")
-	public void boardedit() {}
+	@RequestMapping("/boardedit/{board_id}")
+	public void boardedit(@PathVariable int board_id, Model model) {
+		board_info board = mapper.view(board_id);
+		
+		model.addAttribute("board", board);
+	}
+	
+	@RequestMapping("/boardedit.do/{board_id}")
+	public String boardedit(@PathVariable int board_id, board_info board) {
+		
+		mapper.edit(board);
+		
+		return String.format("redirect:/boardview/%d", board_id);
+	}
+	
 	@RequestMapping("/boardnotice")
 	public void boardnotice() {}
-	@RequestMapping("/boardview")
-	public void boardview() {}
+	
+	@RequestMapping("/boardview.do/{board_id}")
+	public void boardview(@PathVariable int board_id, Model model) {
+		board_info board = mapper.view(board_id);
+		
+		model.addAttribute("board", board);
+	}
+	
 	@RequestMapping("/boardwrite")
 	public void boardwrite() {}
 	
@@ -42,7 +62,9 @@ public class boardController {
 		
 		mapper.write(board);
 		
-		return "redirect:/boardview";
+		// board_id
+		
+		return String.format("redirect:/boardview.do/%d", board.getBoard_id());
 	}
 	
 

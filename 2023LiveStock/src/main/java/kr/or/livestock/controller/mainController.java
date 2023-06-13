@@ -72,6 +72,10 @@ public class mainController {
 	@RequestMapping("/register.do")
 	public String registerDo(user_info user) {
 		
+		String addr = user.getAddr().getAddr1() +" "+ user.getAddr().getAddr1() +" "+ user.getAddr().getAddr1();
+		
+		user.setUser_farm_addr(addr);
+		
 		int n = mapper.sign_up(user);
 		
 		System.out.println(n);

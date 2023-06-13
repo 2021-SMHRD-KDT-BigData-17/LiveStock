@@ -55,10 +55,10 @@
                     <input  type="tel" name="user_phone" required>
                 </div>
                 <label>농장주소</label><br>
-                <div class="address">
-                    <input type="text" id="sample6_postcode" name="user_farm_addr" placeholder="우편번호">
+                <div class="address" th:object="${addr}">
+                    <input type="text" id="sample6_postcode" th:field="*{addr1}" placeholder="우편번호">
                     <input class='btn' type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-                    <input type="text" id="sample6_address" placeholder="주소"><input type="text" id="sample6_detailAddress" placeholder="상세주소">
+                    <input type="text" id="sample6_address" th:field="*{addr2}" placeholder="주소"><input type="text" id="sample6_detailAddress" th:field="*{addr3}" placeholder="상세주소">
                     <input type="text" id="sample6_extraAddress" placeholder="참고항목">
                 </div>
                 <button type="submit" class="btn2">회원가입</button>

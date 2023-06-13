@@ -17,8 +17,8 @@
           	
           	<csrf disabled="false"/>
           	
-          	<intercept-url pattern="/registet.do" access="isAnonymous()" />
-          	<intercept-url pattern="/registet" access="isAnonymous()" />
+          	<intercept-url pattern="/register.do" access="isAnonymous()" />
+          	<intercept-url pattern="/register" access="isAnonymous()" />
           	<intercept-url pattern="/login.do" access="isAnonymous()" />
           	<intercept-url pattern="/login" access="isAnonymous()" />
             <intercept-url pattern="/boardwrite" access="hasRole('ROLE_USER')" />

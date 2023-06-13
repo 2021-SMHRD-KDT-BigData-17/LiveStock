@@ -12,4 +12,8 @@ public interface board_info_mapper {
 	public List<board_info> load();
 	
 	public int write(board_info board);
+
+	public board_info view(int board_id);
+
+	public int edit(board_info board);
 }

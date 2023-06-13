@@ -32,7 +32,7 @@ public class boardController {
 	}
 	
 	@RequestMapping("/board/{page}")
-	public void board(Model model) {
+	public void board(@PathVariable int page, Model model) {
 		
 	}
 	

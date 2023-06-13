@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/b32c894376.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/CSS/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navbar_logo">
+                <i class="fa-solid fa-guarani-sign"></i>
+                <a href="/HTML/login.html">FRAM GUARD</a>
+            </div>
+            <ul class="navbar_menu">
+                <button class = "binLogin-popup">Login</a></button>
+            </ul>
+            <a href="#" class="navbar_toggleBtn">
+                <i class="fa-solid fa-bars"></i>
+            </a>
+        </nav>
+    </header>
+    <div class="wrapper active">
+        <span class = "icon_close">
+            <ion-icon name="close-outline"></ion-icon>
+        </span>
+        <div class="form_box_login">
+            <h2>Login</h2>
+            <form action="#">
+                <div class="input_box">
+                    <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+                    <input type="Id" required>
+                    <label>아이디</label>
+                </div>
+                <div class="input_box">
+                    <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                    <input type="password" required>
+                    <label>비밀번호</label>
+                </div>
+                <div class="remember_forgot">
+                    <a href="#">ID/PW를 잊으셨나요?</a>
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <div class="login_register">
+                    <p>계정이 없으신가요?<a href="/HTML/registet.html" class="register_link"> 회원가입</a></p>
+                </div>
+                
+            </form>
+        </div>
+
+    </div>
+   
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script> 
+    <script>
+        const wrapper = document.querySelector('.wrapper');
+        const loginLink = document.querySelector('.wrapper');
+        const registerLink = document.querySelector('.form_box_register');
+        const btnPopup = document.querySelector('.binLogin-popup');
+
+        registerLink.addEventListener('click', ()=> {
+            wrapper.classList.add('.active');
+        
+        });
+        
+        loginLink.addEventListener('click', ()=> {
+            wrapper.classList.remove('.active');
+        
+        });
+        
+        btnPopup.addEventListener('click', ()=> {
+            wrapper.classList.add('.active-popup');
+        });</script>
+</body>
+</html>

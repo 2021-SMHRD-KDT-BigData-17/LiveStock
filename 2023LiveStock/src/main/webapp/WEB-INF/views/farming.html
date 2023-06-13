@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/b32c894376.js" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="/livestock/resources/CSS/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap" rel="stylesheet">
+
+
+    <title>Calendar</title>
+    <link rel="stylesheet" href="/livestock/resources/CSS/farming.css">
+    <script src="/livestock/resources/JS/farming.js"></script>
+    
+    <script>
+        function add_row() {
+        var my_tbody = document.getElementById('intro');
+        var row = my_tbody.insertRow(intro.rows.length );
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        var cell4 = row.insertCell(3);
+        var cell5 = row.insertCell(4);
+        var cell3 = row.insertCell(5);
+
+        }
+    </script>
+    
+    <title>Page</title>
+</head>
+<body>
+    <header id="header">
+        <div id="container">
+            <nav class="navbar">
+                <div class="navbar_logo">
+                    <i class="fa-solid fa-guarani-sign"></i>
+                    <a href="">FRAM GUARD</a>
+                </div>
+
+                <ul class="navbar_menu">
+                    <li><a href="/livestock/resources/HTML/index.html">HOME</a></li>
+                    <li><a href="">캘린더</a></li>
+                    <li><a href="/livestock/resources/HTML/farming.html">차량 출입 관리</a></li>
+                    <li><a href="/livestock/resources/HTML/board.html">커뮤니티</a></li>
+                    <button class = "binLogin-popup"><a href="/livestock/resources/HTML/login.html">Login</a></button>
+                </ul>
+                
+                <a href="#" class="navbar_toggleBtn">
+                    <i class="fa-solid fa-bars"></i>
+                </a>
+            </nav>
+        </div>
+    </header>
+    <div class="box"></div>
+
+    <div class="box2">
+
+
+        <div class="sidebar">
+    
+            <button class="reload" onClick="window.location.reload()">새로고침</button>
+        
+            <table id = "intro">
+                <caption>차량 출입 관리</caption>
+                <thead>
+                <tr>
+                    <th>일자</th>
+                    <th>차량번호</th>
+                    <th>사진</th>
+                    <th>입문 시간</th>
+                    <th>출문 시간</th>
+                    <th>비고</th>
+            
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>20XX.XX.XX</td>
+                    <td>123가4567</td>
+                    <td>사진사진</td>
+                    <td>11:03</td>
+                    <td>18:09</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>20XX.XX.XX</td>
+                    <td>632나7537</td>
+                    <td>사지인</td>
+                    <td>18:32</td>
+                    <td>21:11</td>
+                    <td>배고프다</td>
+                </tr>
+                
+                </tr>
+                </tbody>
+            </table>
+            
+            
+            
+        </div>
+    </div>
+
+
+    
+
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer">
+                    <ul>
+                        <li><a href="#">사이트 도움말</a></li>
+                        <li><a href="#">사이트 이용약관</a></li>
+                        <li><a href="#">사이트 운영원칙</a></li>
+                        <li><a href="#"><strong>개인정보취급방침</strong></a></li>
+                        <li><a href="#">책임의 한계와 법적고지</a></li>
+                        <li><a href="#">게시중단요청서비스</a></li>
+                        <li><a href="#">고객센터</a></li>
+                    </ul>
+                    <address>
+                        Copyright &copy;
+                        <a href="#"><strong>lifestock</strong></a>
+                        All Rights Reserved.
+                    </address>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+</html>

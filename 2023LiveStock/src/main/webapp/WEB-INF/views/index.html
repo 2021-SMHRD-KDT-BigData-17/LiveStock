@@ -1,26 +1,40 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+=======
+<html lang="en">
+
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-17/LiveStock.git
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/b32c894376.js" crossorigin="anonymous"></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/ol@v7.4.0/dist/ol.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v7.4.0/ol.css">
     <link rel="stylesheet" href="/livestock/resources/CSS/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap" rel="stylesheet">
     <title>lifestock</title>
+    <style>
+    #map {
+            width: 88%;
+            height: 1000px;
+        }
+    </style>
 </head>
+
 <body>
     <div id="wrap">
         <header id="header">
-                <nav class="navbar">
-                    <div class="navbar_logo">
-                        <i class="fa-solid fa-guarani-sign"></i>
-                        <a href="">FRAM GUARD</a>
-                    </div>
+            <nav class="navbar">
+                <div class="navbar_logo">
+                    <i class="fa-solid fa-guarani-sign"></i>
+                    <a href="">FRAM GUARD</a>
+                </div>
 
+<<<<<<< HEAD
                     <ul class="navbar_menu">
                         <li><a href="/livestock/index">HOME</a></li>
                         <li><a href="">농장관리</a></li>
@@ -34,6 +48,20 @@
                         <i class="fa-solid fa-bars"></i>
                     </a>
                 </nav>
+=======
+                <ul class="navbar_menu">
+                    <li><a href="/livestock/resources/HTML/index.html">HOME</a></li>
+                    <li><a href="">캘린더</a></li>
+                    <li><a href="">차량 출입 관리</a></li>
+                    <li><a href="/livestock/resources/HTML/board.html">커뮤니티</a></li>
+                    <button class="binLogin-popup"><a href="/HTML/login.html">Login</a></button>
+                </ul>
+
+                <a href="#" class="navbar_toggleBtn">
+                    <i class="fa-solid fa-bars"></i>
+                </a>
+            </nav>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-17/LiveStock.git
         </header>
         <div class="topbar">
             <div class="logo">가축 전염병 현황</div>
@@ -58,7 +86,7 @@
             <div class="cards">
                 <div class="card">
                     <div class="card-content">
-                        <div class="number">1217</div>
+                        <div class="number">1749</div>
                         <div class="card-name">소</div>
                     </div>
                     <div class="icon-box">
@@ -67,7 +95,7 @@
                 </div>
                 <div class="card">
                     <div class="card-content">
-                        <div class="number">1217</div>
+                        <div class="number">18</div>
                         <div class="card-name">돼지</div>
                     </div>
                     <div class="icon-box">
@@ -76,7 +104,7 @@
                 </div>
                 <div class="card">
                     <div class="card-content">
-                        <div class="number">1217</div>
+                        <div class="number">47905</div>
                         <div class="card-name">닭</div>
                     </div>
                     <div class="icon-box">
@@ -85,7 +113,7 @@
                 </div>
                 <div class="card">
                     <div class="card-content">
-                        <div class="number">1217</div>
+                        <div class="number">21550</div>
                         <div class="card-name">오리</div>
                     </div>
                     <div class="icon-box">
@@ -95,20 +123,27 @@
             </div>
             <div class="charts">
                 <div class="chart">
-                    <h2>월별현황(past 12 months)</h2>
+                    <h2>계절별 현황(2022년)</h2>
                     <canvas id="myChart"></canvas>
                 </div>
                 <div class="chart" id="doughnut-chart">
-                    <h2>전체비율</h2>
+                    <h2>전체비율(기간 : 10년)</h2>
                     <div class="chart-container">
                         <canvas id="pie"></canvas>
                     </div>
                 </div>
             </div>
-            <div class = 'map'>
-                <div class = "live_map"><h1>가축현황지도</h1></div>
+            <div class="map_wrapper">
+                <div id="map" class="map">
+                        <h1>가축현황지도</h1>
+                        <div class="icons">
+                            <i class="fa-solid fa-circle"></i> : 소
+                            <i class="fa-solid fa-circle"></i> : 돼지
+                            <i class="fa-solid fa-circle"></i> : 닭
+                            <i class="fa-solid fa-circle"></i> : 오리
+                        </div>
+                </div>
             </div>
-        </div>
         <footer id="footer">
             <div class="container">
                 <div class="row">
@@ -131,14 +166,24 @@
                 </div>
             </div>
         </footer>
-    
     </div>
 
     <!-- chart JS link -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"></script>
+<<<<<<< HEAD
     <script src="/livestock/resources/JS/chart1.js"></script>
     <script src="/livestock/resources/JS/chart2.js"></script>
     <script src="/livestock/resources/JS/map.js"></script>
+=======
+    <script src="/JS/chart1.js"></script>
+    <script src="/JS/chart2.js"></script>
+    <script src="/JS/index.js"></script>
+
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-17/LiveStock.git
 </body>
+<<<<<<< HEAD
 <script src="/livestock/resources/JS/index.js"></script>
+=======
+
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-17/LiveStock.git
 </html>

@@ -9,7 +9,7 @@ import kr.or.livestock.entity.board_info;
 @Mapper
 public interface board_info_mapper {
 
-	public List<board_info> load();
+	public List<board_info> load(int page);
 	
 	public int write(board_info board);
 
@@ -18,4 +18,6 @@ public interface board_info_mapper {
 	public int edit(board_info board);
 
 	public List<board_info> notice(String category);
+	
+	public int count();
 }

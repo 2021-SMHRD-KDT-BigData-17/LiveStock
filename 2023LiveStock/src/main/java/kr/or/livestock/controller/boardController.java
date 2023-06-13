@@ -22,18 +22,27 @@ public class boardController {
 	@RequestMapping("/board")
 	public void board(Model model) {
 		String category = "general";
-		
+		int fPage = 1;
 //		List<board_info> list = mapper.load(category);
-		List<board_info> list = mapper.load();
+		List<board_info> list = mapper.load(fPage);
 		
 		model.addAttribute("board", list);
+		
+		int cnt = mapper.count();
+		
+		int total = cnt%10 == 0 ? cnt/10 : cnt/10 + 1;
+		int start = 1;
+		int end = total;
+		if(total < 10) {end = total;}
 		
 //		return "board";
 	}
 	
 	@RequestMapping("/board/{page}")
 	public void board(@PathVariable int page, Model model) {
+		List<board_info> list = mapper.load(page);
 		
+		model.addAttribute("board", list);
 	}
 	
 	@RequestMapping("/boardedit/{board_id}")

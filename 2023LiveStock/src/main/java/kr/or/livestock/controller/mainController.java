@@ -66,7 +66,7 @@ public class mainController {
 //		return "index";
 //	}
 	
-	@RequestMapping("/registet")
+	@RequestMapping("/register")
 	public void register() {}
 	
 	@RequestMapping("/register.do")
@@ -78,6 +78,9 @@ public class mainController {
 		
 		return "index";
 	}
+	
+	@RequestMapping("/logout")
+	public void logout() {}
 
 	@RequestMapping("/flask")
 	public String flask(Model model, @RequestParam int n) {
@@ -86,5 +89,9 @@ public class mainController {
 		
 		return "flask";
 	}
+	@RequestMapping("/farming")
+	public void farming() {}
+	@RequestMapping("/calander")
+	public void calander() {}
 	
 }

@@ -17,6 +17,10 @@
           	
           	<csrf disabled="false"/>
           	
+          	<intercept-url pattern="/registet.do" access="isAnonymous()" />
+          	<intercept-url pattern="/registet" access="isAnonymous()" />
+          	<intercept-url pattern="/login.do" access="isAnonymous()" />
+          	<intercept-url pattern="/login" access="isAnonymous()" />
             <intercept-url pattern="/boardwrite" access="hasRole('ROLE_USER')" />
             <intercept-url pattern="/**" access="permitAll" />
             
@@ -41,6 +45,6 @@
     
         <beans:bean id="userService" class="kr.or.livestock.service.mainUserDetailsService"/>
 		<beans:bean id="userAuthProvider" class="kr.or.livestock.service.mainAuthenticationProvider"/>
-        
+        <beans:bean id="bcryptPassswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
         
 </beans:beans>

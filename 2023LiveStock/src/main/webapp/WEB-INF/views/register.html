@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,10 +16,10 @@
         <nav class="navbar">
             <div class="navbar_logo">
                 <i class="fa-solid fa-guarani-sign"></i>
-                <a href="/HTML/login.html">FRAM GUARD</a>
+                <a th:href="@{/}">FRAM GUARD</a>
             </div>
             <ul class="navbar_menu">
-                <button class = "binLogin-popup" scr="/"><a href="/HTML/login.html">Login</a></button>
+                <button class = "binLogin-popup" scr="/" sec:authorize="isAnonymous()"><a th:href="@{/login}">Login</a></button>
             </ul>
             <a href="#" class="navbar_toggleBtn">
                 <i class="fa-solid fa-bars"></i>
@@ -31,39 +31,39 @@
             <ion-icon name="close-outline"></ion-icon>
         </span>
         <div class="form_box_register">
-            <form action="#">
+            <form th:action="@{/register.do}">
                 <h2>Register</h2>
-                <label>이름</label>
-                <div class="input_box">
-                    <input type="text" required>  
-                </div>
                 <label>아이디</label>
                 <div class="input_box">
-                    <input type="Id" required>
+                    <input type="Id" name="user_id" required>
                 </div>
                 <label>비밀번호</label>
                 <div class="input_box">
-                    <input type="password" required>
+                    <input type="password" name="user_pw" required>
+                </div>
+                <label>이름</label>
+                <div class="input_box">
+                    <input type="text" name="user_name" required>  
                 </div>
                 <label for="male">성별</label>
                 <div class="input_box">
-                    남<input type="radio" id="male" name="gender" value="male">
-                    여<input type="radio" id="female" name="gender" value="female">
+                    남<input type="radio" id="male" name="user_gender" value="male">
+                    여<input type="radio" id="female" name="user_gender" value="female">
                 </div>
                 <label>전화번호</label>
                 <div class="input_box">
-                    <input  type="tel" required>
+                    <input  type="tel" name="user_phone" required>
                 </div>
                 <label>농장주소</label><br>
                 <div class="address">
-                    <input type="text" id="sample6_postcode" placeholder="우편번호">
+                    <input type="text" id="sample6_postcode" name="user_farm_addr" placeholder="우편번호">
                     <input class='btn' type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
                     <input type="text" id="sample6_address" placeholder="주소"><input type="text" id="sample6_detailAddress" placeholder="상세주소">
                     <input type="text" id="sample6_extraAddress" placeholder="참고항목">
                 </div>
                 <button type="submit" class="btn2">회원가입</button>
                 <div class="login_link">
-                    <p>이미 계정이 있으신가요? <a href="/HTML/login.html" class="register_link">Login</a></p>
+                    <p>이미 계정이 있으신가요? <a th:href="@{/login}" class="register_link">Login</a></p>
                 </div>
             </form>
         </div>

@@ -24,9 +24,8 @@
 
                     <ul class="navbar_menu">
                         <li><a class="underline" th:href="@{/}">HOME</a></li>
-                        <li><a th:href="@{/farming}">농장관리</a></li>
                         <li><a th:href="@{/calander}">캘린더</a></li>
-                        <li><a th:href="@{/}">차량 출입 관리</a></li>
+              			<li><a th:href="@{/farming}">차량 출입 관리</a></li>
                         <li><a th:href="@{/board}">커뮤니티</a></li>
                         <button class = "binLogin-popup" sec:authorize="isAnonymous()"><a th:href="@{/login}">Login</a></button>
                     </ul>

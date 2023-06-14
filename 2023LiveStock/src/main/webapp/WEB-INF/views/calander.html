@@ -6,48 +6,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/b32c894376.js" crossorigin="anonymous"></script>
     
-    <link rel="stylesheet" href="/CSS/index.css">
+    <link rel="stylesheet" href="/livestock/resources/CSS/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap" rel="stylesheet">
 
-
+    <script src="/livestock/resources/JS/jquery-3.6.4.min.js"></script>
+    <script src="/livestock/resources/JS/calander.js"></script>
     <title>Calendar</title>
-    <link rel="stylesheet" href="/CSS/calander.css">
-    <script src="/JS/calander.js"></script>
+    <link rel="stylesheet" href="/livestock/resources/CSS/calander.css">
+
+    <script>
+        $(document).ready(function() {
+            $('#select').change(function() {
+                var result = $('#select option:selected').val();
+                if (result == 'infection') {
+                    $('.infectionselect').show();
+                    $('.vaccineselect').hide();
+                } else {
+                    $('.infectionselect').hide();
+                    $('.vaccineselect').show();
+                }
+            }); 
+        }); 
+
+
+    </script>
+
+
 </head>
 <body>
     <header id="header">
-        <div id="container">
-            <nav class="navbar">
-                <div class="navbar_logo">
-                    <i class="fa-solid fa-guarani-sign"></i>
-                    <a href="">FRAM GUARD</a>
-                </div>
+        <nav class="navbar">
+            <div class="navbar_logo">
+                <i class="fa-solid fa-guarani-sign"></i>
+                <a href="/HTML/index.html">FRAM GUARD</a>
+            </div>
 
-                <ul class="navbar_menu">
-                    <li><a href="#">HOME</a></li>
-                    <li><a href="#">캘린더</a></li>
-                    <li><a href="#">차량 출입 관리</a></li>
-                    <li><a href="#">커뮤니티</a></li>
-                    <li><a href="/HTML/login.html">로그인</a></li>
-                </ul>
-                
-                <a href="#" class="navbar_toggleBtn">
-                    <i class="fa-solid fa-bars"></i>
-                </a>
-            </nav>
-        </div>
+            <ul class="navbar_menu">
+                <li><a href="/livestock/index">HOME</a></li>
+                <li><a href="">캘린더</a></li>
+                <li><a href="">차량 출입 관리</a></li>
+                <li><a href="/livestock/resources/HTML/board.html">커뮤니티</a></li>
+                <button class = "binLogin-popup"><a href="/livestock/resources/HTML/login.html">Login</a></button>
+            </ul>
+            
+            <a href="#" class="navbar_toggleBtn">
+                <i class="fa-solid fa-bars"></i>
+            </a>
+        </nav>
     </header>
 
-    <div class="box"></div>
+    <div class="topbar"></div>
 
-    <div class="wrap col-flex jcc aic">
+    <div class="calendar-month">
 
         <div class="flex aic" style="gap: 40px;">
-            <button onclick="Calendar.addMonth(-1)">◀</button>
+            <button class="form-inf-btn" onclick="Calendar.addMonth(-1)">◀</button>
             <h1 class="cur-date">2023.6</h1>
-            <button onclick="Calendar.addMonth(1)">▶</button>
+            <button class="form-inf-btn" onclick="Calendar.addMonth(1)">▶</button>
         </div>
  
         <div class="calendar">
@@ -67,19 +84,74 @@
             <div class="modal-form">
                 <div class="modal-top flex aifs jcsb"> 
                     <h1 class="modal-title"></h1>
-                    <button onclick="document.querySelector('.modal.schedule').classList.remove('show')" >X</button>
+                    <button class="form-inf-btn" onclick="document.querySelector('.modal.schedule').classList.remove('show')" >X</button>
                 </div>
                 <div class="modal-content">
-                    <div class="schedule-list">
+                    <div class="schedule-list col-flex">
                         <div class="flex aic jcc" style="width: 100%; height: 100px;">
                             일정이 없습니다.
                         </div>
                     </div>
-                    <div class="form-inf">
-                        <button>ADD</button>
-                    </div>
                 </div>
+
+
+                <form action="#" method="post" class="input-data">
+                    <table  >
+                        <tr >
+                            <td style="text-align: right;">축종 : </td>
+                            <td height="40" style="text-align: left;">
+
+                                
+                                <select>
+                                        <option value="cow">소</option>
+                                        <option value="pig">돼지</option>
+                                        <option value="chick">닭</option>
+                                        <option value="duck">오리</option>
+                                    </select>
+
+                                </select>
+                            </td>
+                            
+                        </tr>
+
+                        <tr>
+                            <td style="text-align: right;">개체 수 : </td>
+                            <td height="40" style="text-align: left;">
+                                &nbsp; &nbsp; <input type="text" name="livestock-cnt" style="width:30px; text-align: center;"> 마리
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="text-align: right;">일정 선택 : </td>
+                            <td height="40" style="text-align: left;">
+                                <select onchange="categoryChange(this)">
+
+                                    <option>선택</option>
+                                    <option value="vaccine">예방 접종</option>
+                                    <option value="infection">감염</option>
+                                </select>
+                              
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                
+                                <select id="livestock-select">
+                                    
+                                </select>
+                               
+                               
+                            </td>
+                        </tr>
+                        
+                    </table>
+                    <br><br>
+                    <input type="submit" value="일정 등록" class="add-schedule">
+                    <input type="reset" value="다시 입력" class="reset-schedule">
+                </form>
                 
+
             </div>
         </div>
     </div>
@@ -112,11 +184,10 @@
     <script>
         Calendar.$calendar = document.querySelector(".calendar");
         Calendar.$date = document.querySelector(".cur-date");
-        Calendar.init();
-
-
-
+        Calendar.init();        
+       
     </script>
         
 </body>
 </html>
+

@@ -1,22 +1,29 @@
 class Schedule {
 
     constructor(name, description, date, time){
-
+        this.name = name;
+        this.description = description;
+        this.date = date;
+        this.time = time;
     }
-
+    getFormattedDateTime() {
+        return `${this.date} ${this.time}`;
+    }
 }
 
 const ls = localStorage;
 
-// Calander main
+// Calendar main
 const Calendar = {
 
     init(){
         const today = new Date();
-        Calendar.showDates(today.getFullYear(), today.getMonth() +1);
+
+        ScheduleManager.loadSchedule();
+        Calendar.showDates(today.getFullYear(), today.getMonth() + 1);
     
         Calendar.year = today.getFullYear();
-        Calendar.month = today.getMonth() +1;
+        Calendar.month = today.getMonth() + 1;
 
   
     },
@@ -49,24 +56,37 @@ const Calendar = {
            $mScheduleList.innerHTML = schedules.map(sc => `
                <div class="schedule flex aic jcsb">
                    <h3>${sc.title}</h3>
-                   <button onclick="ScheduleManager.remove('${sc.id}')></button>
+                   <button onclick="ScheduleManager.remove('${sc.id}')">x</button>
                    
                </div>
            `).join("\n\n");
+
+
     }, 
 
     showDates(y, m){
         const before = document.querySelectorAll(".date");
         before.forEach(v => v.remove());
 
+        
         for (
             let i = -Calendar.getFirstDay(y, m) + 1;
             i <= Calendar.getLastdate(y, m);
             i++
         ){
+            const hasSchedule = ScheduleManager.Schedules.some((schedule) => {
+                const [scheduleYear, scheduleMonth, scheduleDay] = schedule.date.split('-');
+                return scheduleYear === y.toString() && scheduleMonth === m.toString() && scheduleDay === i.toString();
+            });
+
+            const hiddenDateClass = i < 1 ? 'hidden-date' : '';
+            const hasScheduleClass = hasSchedule ? 'has-schedule' : '';
+
             Calendar.$calendar.innerHTML += `
-                <div class="date ${i < 1 ? "hidden-date" : ""}">
+                <div class="date ${hiddenDateClass} ${hasScheduleClass}">
                     <p>${i}</p>
+                    <div style="width:10px; height:10px;  border-radius:50%; background-color:red; margin:3px;"></div>
+                    <div style="width:10px; height:10px;  border-radius:50%; background-color:blue;  margin:3px;"></div>
                 </div>
             `;
         }        
@@ -111,41 +131,46 @@ const ScheduleManager = {
 
     saveSchedule(){
         ls['schedules'] =
-            JSON.stringify(ScheduleManager.schedules);
+            JSON.stringify(ScheduleManager.Schedules);
     },
 
-    addSchedule(){
-        const title = prompt("어떤 일정을 추가하시겠습니까?");
-        
-        if (!title.match(/^[a-zA-Z0-9ㄱ-힣]*$/g))
-            return alert("어잉");
+    addSchedule(name, description, date, time){
+        const schedule = new Schedule(name, description, date, time);
+        this.Schedules.push(schedule);
+        this.saveSchedule();
+        Calendar.refreshScheduleList();
+    },
 
-        const id = new Date().getTime();
-        this.schedules.push({
-            id,
-            date: `${Calendar.year}-${Calendar.month}-${Calendar.day}`,
-            title
-        });
+    remove(id){
+        const index = ScheduleManager.Schedules
+        .findIndex(v => v.id == id);
+
+        ScheduleManager.Schedules
+            .splice(index, 1);
 
         this.saveSchedule();
         Calendar.refreshScheduleList();
+
     }
-
 }
 
-const btn = document.getElementById('popupBtn');
-const modal = document.getElementById('modalWrap');
-const closeBtn = document.getElementById('closeBtn');
 
-btn.onclick = function() {
-  modal.style.display = 'block';
-}
-closeBtn.onclick = function() {
-  modal.style.display = 'none';
-}
 
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
+function categoryChange(e) {
+	var good_a = ["백신명", "백신명", "백신명", "백신명"];
+	var good_b = ["구제역", "조류인플루엔자", "아프리카 돼지열병"];
+	
+	var target = document.getElementById("livestock-select");
+
+	if(e.value == "vaccine") var d = good_a;
+	else if(e.value == "infection") var d = good_b;
+
+	target.options.length = 0;
+
+	for (x in d) {
+		var opt = document.createElement("option");
+		opt.value = d[x];
+		opt.innerHTML = d[x];
+		target.appendChild(opt);
+	}	
 }

@@ -1,3 +1,17 @@
+@font-face {
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,35 +20,76 @@
 }
 
 a {
-    color: initial;
     text-decoration: none;
+    color: black;
 }
 
-
 /* Flexbox */
-.flex {display: flex;}
-.col-flex {display: flex; flex-direction: column;}
-.jcc {justify-content: center;}
-.jcsb {justify-content: space-between;}
-.aic {align-items: center;}
-.aifs {align-items: flex-start;}
+.flex {
+    display: flex;
+}
 
+.col-flex {
+    display: flex;
+    flex-direction: column;
+}
 
+.jcc {
+    justify-content: center;
+}
+
+.jcsb {
+    justify-content: space-between;
+}
+
+.aic {
+    align-items: center;
+}
+
+.aifs {
+    align-items: flex-start;
+}
 
 /* Basic */
-
 body {
     width: 100vw;
-    height: 100vh;  
+    height: 100vh;
     overflow: hidden;
     background: #ebebeb;
-    
     /* Custom setting */
 }
 
 .wrap {
     width: 100%;
     height: 100%;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 8px 20px;
+    height: 82px;
+}
+
+.navbar_logo {
+    font-size: 24px;
+    color: #99CCFF;
+    font-family: 'Pretendard-Regular';
+    font-weight: 1000;
+}
+
+.navbar_logo a {
+    font-size: 24px;
+    color: #99CCFF;
+    font-family: 'Pretendard-Regular';
+    font-weight: 1000;
+}
+
+.navbar_logo i {
+    color: #99CCFF;
+    font-size: 25px;
 }
 
 .box {
@@ -44,10 +99,9 @@ body {
     height: 60px;
     display: flex;
     position: fixed;
-
 }
 
-button{
+.form-inf-btn {
     padding: 10px 15px;
     background: white;
     color: black;
@@ -55,32 +109,42 @@ button{
     border: none;
     outline: none;
     cursor: pointer;
-    transition: background 0.15s ease-in-out,
-                color 0.15s ease-in-out;
-
+    transition: background 0.15s ease-in-out, color 0.15s ease-in-out;
 }
 
-button:hover{
+.form-inf-btn:hover {
     background: #444;
     color: white;
 }
 
 /* Calendar Main */
+.calendar-month{
+    position: fixed;
+    margin: 0 auto;
+    left: 43%;
+    right: 0;
+    top:20%;
+}
 
-.calendar{
+
+.calendar {
     width: 1100px;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 10px;
     padding: 40px;
-    filter: drop-shadow(0 0 15px rgba(0, 0, 0, .04));
+    filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.04));
     margin-bottom: 5%;
+    
+
+    
 }
 
 .calendar > div {
-    
     border-radius: 10px;
-    
+    position:relative;
+    top:10%;
+    right: 400px;
 }
 
 .calendar-top {
@@ -93,47 +157,42 @@ button:hover{
     
 }
 
-.calendar-top:first-of-type{
+.calendar-top:first-of-type {
     background: rgb(255, 82, 82);
     color: white;
 }
 
-.calendar-top:nth-child(7){
+.calendar-top:nth-child(7) {
     background: royalblue;
     color: white;
-} 
+}
 
 .hidden-date {
     visibility: hidden;
     pointer-events: none;
-    
 }
 
-
-
-.date{
+.date {
     background: white;
     padding: 10px;
     padding-bottom: 60px;
     cursor: pointer;
+    height: 90px;
     
 }
-
-
 
 .modal {
     position: fixed;
     z-index: 100;
     display: none;
-    
 }
 
 .modal-bg {
     width: 100vw;
-    height: 100vh; 
+    height: 100vh;
     position: fixed;
     z-index: 105;
-    background: rgba(0, 0, 0, .4);
+    background: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(5px);
     left: 0;
     top: 0;
@@ -149,19 +208,16 @@ button:hover{
     top: 50%;
     transform: translate(-50%, -50%);
     min-width: 400px;
-
 }
 
 .modal.show {
     display: block;
     top: 0;
     left: 0;
-    
 }
 
 .modal-content {
     margin-top: 40px;
-    
 }
 
 .modal-top {
@@ -169,48 +225,115 @@ button:hover{
     padding-bottom: 20px;
     border-bottom: 1px solid #444;
     font-size: 11px;
-
 }
 
 .form-inf-button {
-    background:#444;
-    color:white;
+    background: #444;
+    color: white;
     font-size: 15pt;
-    width:100%;
+    width: 100%;
 }
 
-
-.schedule-list{
+.schedule-list {
     padding: 5px;
     border-radius: 20px;
     background: #fafafa;
     margin-bottom: 20px;
     text-align: center;
     min-height: 100px;
+    gap: 5px;
 }
+
+.schedule {
+    background: white;
+    padding: 10px 15px;
+    border-radius: 20px;
+}
+
 
 .h1 {
     font-size: 18px;
 }
 
-
-
-input[type="text"]{
-    background-color:rgba(214, 214, 214, 0.381);
+input[type="text"] {
+    background-color: rgba(214, 214, 214, 0.381);
     width: 50%;
     height: 25px;
     text-align: left;
     border: 1px solid rgb(101, 101, 101);
-  }
+}
 
-input[type="button"]
-{
+input[type="button"] {
     width: 80px;
-	height:40px;
+    height: 40px;
     border-radius: 15px;
     text-align: center;
-    display:block;
-    margin-left:65%;
+    display: block;
+    margin-left: 65%;
     margin-bottom: 20px;
-    
+}
+
+.input-data {
+    display: table;
+    table-layout: fixed;
+    text-align: center;
+    margin-left: 20%;
+}
+
+.add-schedule {
+    padding: 10px 15px;
+    background: white;
+    color: black;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: background 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+.add-schedule:hover {
+    background: #444;
+    color: white;
+}
+
+.reset-schedule {
+    padding: 10px 15px;
+    background: white;
+    color: black;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: background 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+.reset-schedule:hover {
+    background: #444;
+    color: white;
+}
+
+input {
+    height: 30px;
+    font-size: 13px;
+    font-family: 'NanumSquareNeo-Variable';
+}
+
+select {
+    text-align: center;
+    height: 35px;
+    width: auto;
+    font-size: 15px;
+    font-family: 'NanumSquareNeo-Variable';
+    overflow: visible;
+    border: none;
+}
+
+td {
+    text-align: center;
+    width: 100px;
+}
+
+select[id="livestock-select"]{
+    width: auto;
+    text-align: center;
 }

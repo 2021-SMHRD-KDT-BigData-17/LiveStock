@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,6 +22,9 @@ public class mainController {
 
 	@Autowired
 	user_info_mapper mapper;
+	
+	@Autowired
+	BCryptPasswordEncoder bcryptPasswordEncoder;
 	
 	@RequestMapping("/")
 	public String main(Model model, RedirectAttributes reat) {
@@ -75,7 +79,12 @@ public class mainController {
 		
 		String addr = user.getAddr().getAddr1() +" "+ user.getAddr().getAddr1() +" "+ user.getAddr().getAddr1();
 		
+		System.out.println(user.getAddr().getAddr1() +" "+ user.getAddr().getAddr1() +" "+ user.getAddr().getAddr1());
+		
+		System.out.println(addr);
+		
 		user.setUser_farm_addr(addr);
+		user.setUser_pw(bcryptPasswordEncoder.encode(user.getUser_pw()));
 		
 		int n = mapper.sign_up(user);
 		

@@ -19,5 +19,5 @@ public interface board_info_mapper {
 
 	public List<board_info> notice(String category);
 	
-	public int count();
+	public Integer count();
 }

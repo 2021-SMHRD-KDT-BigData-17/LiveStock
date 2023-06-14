@@ -127,16 +127,16 @@
                 </div> -->
                
             </div>
-            <div class="board_page">
-                <a href="#" class="bt first"><<</a>
-                <a href="#" class="bt prev"><</a>
+            <div class="board_page" th:each="c : ${page}">
+                <a th:href="@{/board/1}" class="bt first"><<</a>
+                <a th:href="@{/board/{a}(a=${c.page} - 1)}" class="bt prev"><</a>
                 <a href="#" class="num on">1</a>
                 <a href="#" class="num">2</a>
                 <a href="#" class="num">3</a>
                 <a href="#" class="num">4</a>
                 <a href="#" class="num">5</a>
-                <a href="#" class="bt next">></a>
-                <a href="#" class="bt last">>></a>
+                <a th:href="@{/board/{a}(a=${c.page} + 1)}" class="bt next">></a>
+                <a th:href="@{/board/{a}(a=${c.end})}" class="bt last">>></a>
             </div>
             <div class="bt_wrap">
                 <a href="/livestock/boardwrite" class="on">등록</a>

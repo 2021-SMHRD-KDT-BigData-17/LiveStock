@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.or.livestock.mapper.board_info_mapper">
     
-    <select id="load" resultType="kr.or.livestock.entity.board_info">
-        select * from board_info order by board_id desc limit (#{page}-1)*10, 10
+    <select id="load" parameterType="Integer" resultType="kr.or.livestock.entity.board_info">
+        select * from board_info order by board_id desc limit #{pageInfo.getPage()}, 10
     </select>
     
     <insert id="write" parameterType="kr.or.livestock.entity.board_info" useGeneratedKeys="true" keyColumn="board_id">
@@ -11,18 +11,19 @@
     </insert>
 
     <select id="view" parameterType="Integer" resultType="kr.or.livestock.entity.board_info">
+		update board_info set(board_views = board_views + 1) where board_id = #{board_id};
 		select * from board_info where board_id = #{board_id}
     </select>
     
     <update id="edit" parameterType="kr.or.livestock.entity.board_info">
-        update user_info set(board_title=#{board_title}, board_content=#{board_content}, board_dt=now()) where board_id = #{board_id}
+        update board_info set(board_title=#{board_title}, board_content=#{board_content}, board_dt=now()) where board_id = #{board_id}
     </update>
     
     <select id="notice" resultType="kr.or.livestock.entity.board_info">
-		select * from board_info order by board_id desc limit (#{page}-1)*10, 10
+		select * from board_info order by board_id desc limit #{pageInfo.getPage()}, 10
     </select>
     
-    <select id="count">
+    <select id="count" resultType="Integer">
 		select count(*) from board_info
     </select>
     

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.or.livestock.entity.board_info;
 import kr.or.livestock.mapper.board_info_mapper;
+import kr.or.livestock.service.page;
 
 @Controller
 public class boardController {
@@ -19,31 +20,32 @@ public class boardController {
 	@Autowired
 	board_info_mapper mapper;
 	
-	@RequestMapping("/board")
-	public void board(Model model) {
-		String category = "general";
-		int fPage = 1;
+	@RequestMapping({"/board", "/board/{page}"})
+	public void board(@PathVariable(required=false) Integer page, Model model) {
+//		String category = "general";
+		
+		int cPage = (page == null) ? 1 : page;
+		
+		int cnt = mapper.count() == null ? 0 : mapper.count();
+
+		page pageInfo = new page(cnt, cPage);
+		
 //		List<board_info> list = mapper.load(category);
-		List<board_info> list = mapper.load(fPage);
+		List<board_info> list = mapper.load(pageInfo.getPage());
 		
 		model.addAttribute("board", list);
 		
-		int cnt = mapper.count();
-		
-		int total = cnt%10 == 0 ? cnt/10 : cnt/10 + 1;
-		int start = 1;
-		int end = total;
-		if(total < 10) {end = total;}
+		model.addAttribute("page", pageInfo);
 		
 //		return "board";
 	}
 	
-	@RequestMapping("/board/{page}")
-	public void board(@PathVariable int page, Model model) {
-		List<board_info> list = mapper.load(page);
-		
-		model.addAttribute("board", list);
-	}
+//	@RequestMapping("/board/{page}")
+//	public void board(@PathVariable int page, Model model) {
+//		List<board_info> list = mapper.load(page);
+//		
+//		model.addAttribute("board", list);
+//	}
 	
 	@RequestMapping("/boardedit/{board_id}")
 	public void boardedit(@PathVariable int board_id, Model model) {

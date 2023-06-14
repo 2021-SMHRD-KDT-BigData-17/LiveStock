@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import kr.or.livestock.entity.addr;
 import kr.or.livestock.entity.user_info;
 import kr.or.livestock.mapper.user_info_mapper;
 
@@ -67,7 +68,7 @@ public class mainController {
 //	}
 	
 	@RequestMapping("/register")
-	public void register() {}
+	public void register(Model model) {model.addAttribute("addr", new addr());}
 	
 	@RequestMapping("/register.do")
 	public String registerDo(user_info user) {

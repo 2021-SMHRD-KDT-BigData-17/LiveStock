@@ -109,22 +109,25 @@ a{
 
 }
 
+
 .wrapper{
     width: 400px;
-    height: 800px;
+    height: 878px;
     background: transparent;
-    /* border: 1px solid rgba(255,255,255,.5); */
+    /* border: 1px solid rgba (255,255,255,.5); */
     border-radius: 20px;
     backdrop-filter: blur(50px);
-    top: 3%;
+    top: 0%;
     left: 39%;
     position: relative;
     align-items: center;
     justify-content: center;
     box-shadow: 0 0 30px rgba(0,0,0,0.5);
     display: flex;
- 
+    margin-top: 40px;
+    margin-left: 35px;  
 }
+
 
 
 .form_box_login{

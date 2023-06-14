@@ -43,7 +43,9 @@ html{
     color: #fff;
 }
 
-
+.underline{
+    border-bottom: 2px solid #99CCFF;
+}
 
 
 .board_wrap{

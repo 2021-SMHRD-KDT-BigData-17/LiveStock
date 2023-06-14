@@ -26,12 +26,12 @@ public class boardController {
 		
 		int cPage = (page == null) ? 1 : page;
 		
-		int cnt = mapper.count() == null ? 0 : mapper.count();
+		int cnt = (mapper.count() == null) ? 0 : mapper.count();
 
 		page pageInfo = new page(cnt, cPage);
 		
 //		List<board_info> list = mapper.load(category);
-		List<board_info> list = mapper.load(pageInfo.getPage());
+		List<board_info> list = mapper.load(pageInfo.getCPage());
 		
 		model.addAttribute("board", list);
 		

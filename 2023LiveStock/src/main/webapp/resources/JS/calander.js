@@ -157,7 +157,7 @@ const ScheduleManager = {
 
 
 function categoryChange(e) {
-	var good_a = ["백신명", "백신명", "백신명", "백신명"];
+	var good_a = ["바이러스 입자 불활화 백신(조류)", "혈청형 O형과 A형 혼합백신(소)", "돼지파보백신", "돼지위축성비염백신", "돼지대장균백신혼합백신"];
 	var good_b = ["구제역", "조류인플루엔자", "아프리카 돼지열병"];
 	
 	var target = document.getElementById("livestock-select");

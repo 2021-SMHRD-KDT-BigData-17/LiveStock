@@ -20,6 +20,8 @@ public class page {
 		this.start = (page-1)/10 + 1;
 		this.end = total < 10 ? total : ((page-1)/10 + 1)*10;
 		
+		if(this.end == 0) {this.end = 1;}
+		
 		this.page = page;
 		this.cPage = ((page - 1)/10) * 10;
 		

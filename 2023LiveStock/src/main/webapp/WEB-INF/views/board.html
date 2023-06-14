@@ -128,6 +128,8 @@
                
             </div>
             <div class="board_page" th:object="${page}" th:with="start = *{start}, end = *{end}">
+            	<span th:text="${start}"></span>
+            	<span th:text="${end}"></span>
             	<th:block th:if="*{page != 1}">
 	                <a th:href="@{/board/1}" class="bt first"><<</a>
 	                <a th:href="@{/board/{a}(a=*{page} - 1)}" class="bt prev"><</a>

@@ -21,7 +21,7 @@ public class boardController {
 	board_info_mapper mapper;
 	
 	@RequestMapping({"/board", "/board/{page}"})
-	public void board(@PathVariable(required=false) Integer page, Model model) {
+	public String board(@PathVariable(required=false) Integer page, Model model) {
 //		String category = "general";
 		
 		int cPage = (page == null) ? 1 : page;
@@ -38,6 +38,8 @@ public class boardController {
 		model.addAttribute("page", pageInfo);
 		
 //		return "board";
+		
+		return "board";
 	}
 	
 //	@RequestMapping("/board/{page}")
@@ -72,10 +74,12 @@ public class boardController {
 	}
 	
 	@RequestMapping("/boardview.do/{board_id}")
-	public void boardview(@PathVariable int board_id, Model model) {
+	public String boardview(@PathVariable int board_id, Model model) {
 		board_info board = mapper.view(board_id);
 		
 		model.addAttribute("board", board);
+		
+		return "boardview";
 	}
 	
 	@RequestMapping("/boardwrite")

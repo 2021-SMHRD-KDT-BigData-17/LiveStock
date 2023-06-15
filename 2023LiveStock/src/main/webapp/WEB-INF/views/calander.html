@@ -13,6 +13,9 @@
 
     <script src="/livestock/resources/JS/jquery-3.6.4.min.js"></script>
     <script src="/livestock/resources/JS/calander.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <title>Calendar</title>
     <link rel="stylesheet" href="/livestock/resources/CSS/calander.css">
 
@@ -45,11 +48,10 @@
 
             <ul class="navbar_menu">
                 <li><a th:href="@{/}">HOME</a></li>
-                <li><a class="underline" th:href="@{/calander}">캘린더</a></li>
+                <li><a th:href="@{/calander}">캘린더</a></li>
                 <li><a th:href="@{/farming}">차량 출입 관리</a></li>
-                <li><a th:href="@{/board}">커뮤니티</a></li>
+                <li><a class="underline" th:href="@{/board}">커뮤니티</a></li>
                 <button class = "binLogin-popup" sec:authorize="isAnonymous()"><a th:href="@{/login}">Login</a></button>
-                <button class = "binLogin-popup"><a href="/HTML/login.html">Logout</a></button>
             </ul>
             
             <a href="#" class="navbar_toggleBtn">
@@ -98,6 +100,13 @@
 
                 <form action="#" method="post" class="input-data">
                     <table  >
+                        <tr>
+                          
+                            <td colspan="2" height="40">
+                                <input type="hidden" id="infected_dt" name="infected_dt" value="dateinput"/>
+                            </td>
+
+                        </tr>
                         <tr >
                             <td style="text-align: right;">축종 : </td>
                             <td height="40" style="text-align: left;">

@@ -39,8 +39,10 @@ const Calendar = {
 
                     const day = Calendar.day = this.innerText;
                     const $mTitle = document.querySelector(".modal.schedule .modal-title");  
-                    $mTitle.innerHTML = `${Calendar.month}월  ${day}일  일정`;
-                   
+                    $mTitle.innerHTML = `${Calendar.year}년 ${Calendar.month}월  ${day}일  일정`;
+                    var dateinput= `${Calendar.year}-${Calendar.month}-${day}`;
+                    $('input[name=infected_dt]').attr('value',dateinput);
+
                     Calendar.refreshScheduleList();
                 }   
             });
@@ -174,3 +176,5 @@ function categoryChange(e) {
 		target.appendChild(opt);
 	}	
 }
+
+

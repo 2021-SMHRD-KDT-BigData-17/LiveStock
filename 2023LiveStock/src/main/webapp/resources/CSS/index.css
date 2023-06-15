@@ -213,6 +213,10 @@ a{
     justify-content: center;
 }
 
+.ol-viewport{
+	width:800px;
+	height:100px;
+}
 .map .fa-circle:nth-child(1) {
     margin-left: 20px;
     font-size: 20px;

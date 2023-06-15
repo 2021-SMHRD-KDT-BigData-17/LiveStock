@@ -34,7 +34,6 @@
                 <li><a th:href="@{/farming}">차량 출입 관리</a></li>
                 <li><a class="underline" th:href="@{/board}">커뮤니티</a></li>
                 <button class = "binLogin-popup" sec:authorize="isAnonymous()"><a th:href="@{/login}">Login</a></button>
-                <button class = "binLogin-popup"><a href="/HTML/login.html">Logout</a></button>
             </ul>
             
             <a href="#" class="navbar_toggleBtn">
@@ -55,12 +54,12 @@
                 <caption>차량 출입 관리</caption>
                 <thead>
                 <tr>
-                    <th width="200px">일자</th>
-                    <th width="200px">차량번호</th>
-                    <th width="400px">사진</th>
+                    <th width="150px">일자</th>
+                    <th width="150px">차량번호</th>
                     <th width="150px">입문 시간</th>
                     <th width="150px">출문 시간</th>
-                    <th>비고</th>
+                    <th>번호판 사진</th>
+                    <th width="130px">비고</th>
             
                 </tr>
                 </thead>
@@ -68,35 +67,35 @@
                 <tr>
                     <td>2023.06.13</td>
                     <td>167어 8085</td>
-                    <td><img src="/livestock/resources/IMG/KakaoTalk_20230614_104202420.png" alt="" class="car"></td>
                     <td>11:03</td>
                     <td>18:09</td>
+                    <td>            
+                        <div class="container">
+                            <div class="image-upload" id="image-upload">
+                    
+                                <form method="post" enctype="multipart/form-data">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="file" id="chooseFile" name="chooseFile" accept="image/*" onchange="loadFile(this)">
+                                    <br>
+                                    <p></p>
+                                </form>
+                    
+                                <div class="fileContainer">
+                                    <div class="fileInput">
+                                        <p>FILE NAME: </p>
+                                        <p id="fileName"></p>
+                                    </div>
+                                    <div class="buttonContainer">
+                                        <div class="submitButton" id="submitButton">SUBMIT</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="image-show" id="image-show"></div>
+                        </div>
                     <td></td>
                 </tr>
-                <tr>
-                    <td>2023.06.14</td>
-                    <td>283수 1550</td>
-                    <td><img src="/livestock/resources/IMG/KakaoTalk_20230614_105231197.png" alt="" class="car"></td>
-                    <td>09:32</td>
-                    <td>19:27</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>2023.06.14</td>
-                    <td>112무 3867</td>
-                    <td><img src="/livestock/resources/IMG/KakaoTalk_20230614_105343103.png" alt="" class="car"></td>
-                    <td>13:46</td>
-                    <td>17:11</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>2023.06.14</td>
-                    <td>23조 0286</td>
-                    <td><img src="/livestock/resources/IMG/KakaoTalk_20230614_105432408.png" alt="" class="car"></td>
-                    <td>18:56</td>
-                    <td>20:04</td>
-                    <td></td>
-                </tr>
+         
                 </tbody>
             </table>
             
@@ -131,7 +130,7 @@
         </div>
     </footer>
 
-    <script>
+    <script src="/livestock/resources/JS/farming.js">
         <a onClick="window.location.reload()" style="cursor: pointer;">[새로고침]</a>
     </script>
     

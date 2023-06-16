@@ -96,14 +96,25 @@ public class mainController {
 		
 		System.out.println(n);
 		
-		mapper.register(livestock);
-		
 		return "index";
 	}
 	
 	@RequestMapping("/logout")
 	public void logout() {}
-
+	
+	@RequestMapping("/livestockinfo")
+	public void livestockinfo() {}
+	
+	@RequestMapping("/livestockinfo.do")
+	public String livestockinfoDo(livestock_info livestock) {
+		
+		mapper.register(livestock);
+		
+		// 만약 종류가 겹칠 경우에는 업데이로 진행하도록 한다.
+		
+		return "index";
+	}
+	
 //	@RequestMapping("/flask")
 //	public String flask(Model model, @RequestParam int n) {
 //		

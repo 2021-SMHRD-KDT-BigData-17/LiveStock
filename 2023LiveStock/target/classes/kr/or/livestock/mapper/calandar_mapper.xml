@@ -7,6 +7,16 @@
     </resultMap>
     
     <select id="load" resultMap="loadCalandar">
-        select * from livestock_info inner join vaccine_info on livestock_info.livestock_id = vaccine_info.livestock_id inner join infection_info on livestock_info.livestock_id = infection_info.livestock_id
+        select * from livestock_info inner join vaccine_info on livestock_info.livestock_id = vaccine_info.livestock_id inner join infection_info on livestock_info.livestock_id = infection_info.livestock_id where livestock_info.user_id = #{user_id}
     </select>
+    
+    <insert id="vaccine" parameterType="kr.or.livestock.entity.vaccine_info">
+        insert into vaccine_info (livestock_id, vaccine_name, vaccine_cnt, vaccine_dt, vaccine_yn, reg_dt) values (#{livestock_id}, #{vaccine_name}, #{vaccine_cnt}, #{vaccine_dt}, #{vaccine_yn}, #{reg_dt})
+    </insert>
+
+    <insert id="infection" parameterType="kr.or.livestock.entity.infection_info">
+        insert into infection_info (livestock_id, disease_name, infected_cnt, infected_dt) values (#{livestock_id}, #{disease_name}, #{infected_cnt}, #{infected_dt})
+    </insert>
+    
+    
 </mapper>

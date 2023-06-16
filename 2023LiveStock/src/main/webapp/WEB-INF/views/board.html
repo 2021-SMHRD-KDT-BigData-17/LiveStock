@@ -62,12 +62,12 @@
                     <div class = "count" name="board_views">조회</div>
                 </div>
                 <div th:each="b:${list}">
-                    <div class = "num" name = "board_id">[[${b.board_id}</div>
-                    <div class = "categori" name = "board_category">[[${b.board_category}]]</div>
-                    <div class = "title" name = "board_title"><a th:href="@{/boardview}">[[${b.board_title}]]</a></div>
-                    <div class = "writer" name = "user_id">[[${b.user_id}]]</div>
-                    <div class = "date"  name="board_dt">[[${b.board_dt}]]</div>
-                    <div class = "count" name="board_views">[[${b.board_views}]]</div>
+                    <div class = "num" th:text="${b.board_id}">1</div>
+                    <div class = "categori" th:text="${b.board_category}"></div>
+                    <div class = "title"><a th:href="@{/boardview}" th:text="${b.board_title}"></a></div>
+                    <div class = "writer" th:text="${b.user_id}"></div>
+                    <div class = "date" th:text="${b.board_dt}"></div>
+                    <div class = "count" th:text="${b.board_views}"></div>
                 </div>
                 
                 <!-- <div>

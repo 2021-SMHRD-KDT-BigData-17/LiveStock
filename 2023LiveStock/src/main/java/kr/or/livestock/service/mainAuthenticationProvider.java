@@ -16,6 +16,9 @@ public class mainAuthenticationProvider implements AuthenticationProvider {
 	@Autowired
 	private UserDetailsService userDetailsService;
 
+	@Autowired
+	BCryptPasswordEncoder bcryprPasswordEncoder;
+	
 	@SuppressWarnings("unchecked")
 	@Override
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
@@ -23,13 +26,19 @@ public class mainAuthenticationProvider implements AuthenticationProvider {
         String username = (String) authentication.getPrincipal();
         String password = (String) authentication.getCredentials();
         
-//        System.out.println(username + " : " + password);
+        System.out.println(username + " : " + password);
         
         user_info user = (user_info) userDetailsService.loadUserByUsername(username);
         
-        if(!matchPassword(password, user.getPassword())) {
-            throw new BadCredentialsException(username);
+        System.out.println(user.getPassword());
+        
+        if(!bcryprPasswordEncoder.matches(password, user.getPassword())) {
+        	throw new BadCredentialsException(username);
         }
+        
+//        if(!matchPassword(password, user.getPassword())) {
+//            throw new BadCredentialsException(username);
+//        }
  
         if(!user.isEnabled()) {
             throw new BadCredentialsException(username);
@@ -39,7 +48,7 @@ public class mainAuthenticationProvider implements AuthenticationProvider {
         
         System.out.println(user.getAuthorities());
         
-        Authentication auth = new UsernamePasswordAuthenticationToken(username, password, user.getAuthorities());
+        Authentication auth = new UsernamePasswordAuthenticationToken(username, user.getPassword(), user.getAuthorities());
         
         if(auth != null) {
         	System.out.println("NotNULL");
@@ -53,8 +62,8 @@ public class mainAuthenticationProvider implements AuthenticationProvider {
         return true;
     }
     
-    private boolean matchPassword(String loginPwd, String password) {
-        return loginPwd.equals(password);
-    }
+//    private boolean matchPassword(String loginPwd, String password) {
+//        return loginPwd.equals(password);
+//    }
 	
 }

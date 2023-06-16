@@ -14,6 +14,8 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.or.livestock.entity.addr;
+import kr.or.livestock.entity.board_info;
+import kr.or.livestock.entity.livestock_info;
 import kr.or.livestock.entity.user_info;
 import kr.or.livestock.mapper.user_info_mapper;
 
@@ -72,16 +74,19 @@ public class mainController {
 //	}
 	
 	@RequestMapping("/register")
-	public void register(Model model) {model.addAttribute("addr", new addr());}
+	public void register(Model model) {
+		model.addAttribute("user_info", new user_info());
+//		model.addAttribute("addr", new addr());
+	}
 	
 	@RequestMapping("/register.do")
 	public String registerDo(user_info user) {
 		
-		String addr = user.getAddr().getAddr1() +" "+ user.getAddr().getAddr1() +" "+ user.getAddr().getAddr1();
+		String addr = user.getAddr().getAddr1() +" "+ user.getAddr().getAddr2() +" "+ user.getAddr().getAddr3();
 		
-		System.out.println(user.getAddr().getAddr1() +" "+ user.getAddr().getAddr1() +" "+ user.getAddr().getAddr1());
+//		System.out.println(user.getAddr().getAddr1() +" "+ user.getAddr().getAddr1() +" "+ user.getAddr().getAddr1());
 		
-		System.out.println(addr);
+//		System.out.println(addr);
 		
 		user.setUser_farm_addr(addr);
 		user.setUser_pw(bcryptPasswordEncoder.encode(user.getUser_pw()));
@@ -96,16 +101,26 @@ public class mainController {
 	@RequestMapping("/logout")
 	public void logout() {}
 
-	@RequestMapping("/flask")
-	public String flask(Model model, @RequestParam int n) {
-		
-		model.addAttribute("flask", n);
-		
-		return "flask";
-	}
-	@RequestMapping("/farming")
-	public void farming() {}
-	@RequestMapping("/calander")
-	public void calander() {}
+//	@RequestMapping("/flask")
+//	public String flask(Model model, @RequestParam int n) {
+//		
+//		model.addAttribute("flask", n);
+//		
+//		return "flask";
+//	}
+	
+//	@RequestMapping("/test")
+//	public void test() {}
+//	
+//	@RequestMapping("/test.do")
+//	public void testDo(board_info board, livestock_info livestock) {
+//		int a = (board == null) ? 1 : 0;
+//		int b = (livestock == null) ? 1 : 0;
+//		
+//		System.out.println(a + " 1이면 있고 0이면 없고 " + b);
+//		System.out.println(board.getBoard_category() + " " + board.getBoard_content());
+//		System.out.println(livestock.getLivestock_name() + " " + livestock.getUser_id());
+//	}
+	
 	
 }

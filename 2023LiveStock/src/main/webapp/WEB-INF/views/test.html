@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form th:action="@{/test.do}">
+		<input type="text" th:name="${livestock_name}">
+		<input type="text" th:name="${user_id}">
+		<input type="text" th:name="${board_category}">
+		<input type="text" th:name="${board_content}">
+		<input type="submit">
+	</form>
+</body>
+</html>

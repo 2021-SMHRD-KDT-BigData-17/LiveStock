@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/livestock/resources/CSS/livestock.css">
+    <script src="https://kit.fontawesome.com/b32c894376.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+    <title>농장이야기</title>
+</head> 
+<body>
+    <header id="header">
+        <nav class="navbar">
+            <div class="navbar_logo">
+                <i class="fa-solid fa-guarani-sign"></i>
+                <a th:href="@{/}">FRAM GUARD</a>
+            </div>
+
+            <ul class="navbar_menu">
+                <li><a th:href="@{/}">HOME</a></li>
+                <li><a class="underline" href="/livestock/resources/HTML/livestockinfo.html">가축 정보</a></li>
+                <li><a th:href="@{/calander}">캘린더</a></li>
+                <li><a th:href="@{/farming}">차량 출입 관리</a></li>
+                <li><a th:href="@{/board}">커뮤니티</a></li>
+                <button class = "binLogin-popup" sec:authorize="isAnonymous()"><a th:href="@{/login}">Login</a></button>
+                <button class = "binLogin-popup" sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></button>
+            </ul>
+            
+            <a href="#" class="navbar_toggleBtn">
+                <i class="fa-solid fa-bars"></i>
+            </a>
+        </nav>
+    </header>
+    <div class="topbar"> </div>
+    <div class="wrapper">
+       <div class="form_box_register">
+           <form action="#">
+               <h2>가축 정보</h2>
+               <div class="livestock_wrapper" th:object="${livestock_info}">
+               	<!-- <label>가축순번</label> -->
+                <div class="input_box" style="visibility:hidden">
+                    <input type="text" name="user_id" th:value="${#authentication.principal}" required>  
+                </div>
+                <label>축종</label>
+                <div class="input_box">
+                    <select style="width:170px;height:25px;margin-top: 3;" name="livestock_name">
+                        <option value="cow" selected>소</option>
+                        <option value="pig">돼지</option>
+                        <option value="chicken">닭</option>
+                        <option value="duck">오리</option>
+                    </select>
+                </div>
+                <label>보유 개체 수</label>
+                <div class="input_box">
+                    <input type="text" name="livestock_cnt" required>
+                </div>
+                <label>비고</label>
+                <div class="input_box">
+                    <input type="text"  name="livestock_etc" required>
+               	</div>
+               </div>
+               <button type="submit" class="btn2">정보등록</button>
+               <div class="login_link">
+                   <p>이미 계정이 있으신가요? <a href="/HTML/login.html" class="register_link">Login</a></p>
+               </div>
+           </form>
+       </div>
+    </div>
+</body>
+</html>

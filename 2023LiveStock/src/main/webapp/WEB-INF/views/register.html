@@ -60,29 +60,6 @@
 	                    <input type="text" id="sample6_extraAddress" placeholder="참고항목">
 	                </div>
                 </div>
-                <div class="livestock_wrapper" th:object="${livestock_info}">
-                	<!-- <label>가축순번</label> -->
-	                <div class="input_box" style="visibility:hidden">
-	                    <input type="text" name="user_id" th:value="${#authentication.principal}" required>  
-	                </div>
-	                <label>축종</label>
-	                <div class="input_box">
-	                    <select style="width:170px;height:25px;margin-top: 3;" name="livestock_name">
-	                        <option value="cow">소</option>
-	                        <option value="pig">돼지</option>
-	                        <option value="chicken" selected>닭</option>
-	                        <option value="duck">오리</option>
-	                    </select>
-	                </div>
-	                <label>보유 개체 수</label>
-	                <div class="input_box">
-	                    <input type="text" name="livestock_cnt" required>
-	                </div>
-	                <label>비고</label>
-	                <div class="input_box">
-	                    <input type="text"  name="livestock_etc" required>
-                	</div>
-                </div>
                 <button type="submit" class="btn2">회원가입</button>
                 <div class="login_link">
                     <p>이미 계정이 있으신가요? <a th:href="@{/login}" class="register_link">Login</a></p>

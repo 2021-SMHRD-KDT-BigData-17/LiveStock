@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/livestock/resources/CSS/boradwrite.css">
+    <link rel="stylesheet" href="/livestock/resources/CSS/boardwrite.css">
     <script src="https://kit.fontawesome.com/b32c894376.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -59,7 +59,7 @@
                 <div class="info">
                     <dl>
                         <dt>작성자</dt>
-                        <dd><input type="text" placeholder="글쓴이 입력" th:value="${#authnetication.principal}" name="user_id" readonly></dd>
+                        <dd><input type="text" placeholder="글쓴이 입력" th:value="${#authentication.principal}" name="user_id" readonly></dd>
                     </dl>
                     <dl>
                         <dt>카테고리</dt>
@@ -71,7 +71,7 @@
                     </dl>
                 </div>
                 <div class="cont">
-                    <textarea name="" id="" placeholder="내용 입력" th:value="${board.board_content}" name="board_content"> 
+                    <textarea id="" placeholder="내용 입력" th:value="${board.board_content}" name="board_content"> 
 글 내용이 들어갑니다.
 글 내용이 들어갑니다.
 글 내용이 들어갑니다.
@@ -82,8 +82,8 @@
         </div>
         
             <div class="bt_wrap">
-                <a href="/livestock/boardedit.do" class="on">수정</a>
-                <a href="/livestock/board">취소</a>
+                <a th:href="@{/boardedit.do/{a}(a=${board.board_id})" class="on">수정</a>
+                <a th:href="@{/board}">취소</a>
 
             </div>
         </div>

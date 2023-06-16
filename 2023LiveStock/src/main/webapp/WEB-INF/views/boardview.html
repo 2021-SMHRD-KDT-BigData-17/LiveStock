@@ -49,46 +49,39 @@
             <p>서로 농장에 대한 정보를 빠르게 주고 받을 수 있습니다.</p>
         </div>
         <div class="board_view_wrap">
-            <div class="board_view">
-                <div class="title" name="board_title">
-                    글제목이들어갑니다
+            <div class="board_view" th:object="${board}">
+                <div class="title" th:text="${board_title}">
                 </div>
                 <div class="info">
                     <dl>
                         <dt>번호</dt>
-                        <dd th:text="${}"></dd>
+                        <dd th:text="*{board_id}"></dd>
                     </dl>
                     <dl>
                         <dt>카테고리</dt>
-                        <dd th:text="${}">오리</dd>
+                        <dd th:text="*{board_category}"></dd>
                     </dl>
                     <dl>
                         <dt>작성자</dt>
-                        <dd th:text="${}">김이름</dd>
+                        <dd th:text="*{user_id}"></dd>
                     </dl>
                     <dl>
                         <dt>작성일</dt>
-                        <dd th:text="${}">2023.06.02</dd>
+                        <dd th:text="*{board_dt}"></dd>
                     </dl>
                     <dl>
                         <dt>조회</dt>
-                        <dd th:text="${}">0</dd>
+                        <dd th:text="*{board_views}"></dd>
                     </dl>
                 </div>
                 <div class="cont">
-                    글내용이들어갑니다<br>
-                    글내용이들어갑니다<br>
-                    글내용이들어갑니다<br>
-                    글내용이들어갑니다<br>
-                    글내용이들어갑니다<br>
-                    글내용이들어갑니다<br>
-                    글내용이들어갑니다
+                	<textarea th:text="*{board_content}"></textarea>
                 </div>
             </div>
             <div class="bt_wrap">
                 <a th:href="@{/board}" class="on">목록</a>
-                <a th:href="@{/boardedit}" th:if="${#authentication.principal == board.user_id}">수정</a>
-                <a href="/HTML/boardedit.html">삭제</a>
+                <a th:href="@{/boardedit/{a}(a=${board_id})}" th:if="${#authentication.principal == board.user_id}">수정</a>
+                <a th:href="@{/boardedit}">삭제</a>
     
             </div>
             <div id="form-commentInfo">

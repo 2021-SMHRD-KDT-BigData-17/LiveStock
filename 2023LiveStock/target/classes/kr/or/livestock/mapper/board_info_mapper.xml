@@ -11,7 +11,7 @@
     </insert>
 
     <select id="view" parameterType="Integer" resultType="kr.or.livestock.entity.board_info">
-		update board_info set(board_views = board_views + 1) where board_id = #{board_id};
+		update board_info set board_views = board_views + 1 where board_id = #{board_id};
 		select * from board_info where board_id = #{board_id}
     </select>
     

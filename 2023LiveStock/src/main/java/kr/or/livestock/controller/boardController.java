@@ -50,10 +50,12 @@ public class boardController {
 //	}
 	
 	@RequestMapping("/boardedit/{board_id}")
-	public void boardedit(@PathVariable int board_id, Model model) {
+	public String boardedit(@PathVariable int board_id, Model model) {
 		board_info board = mapper.view(board_id);
 		
 		model.addAttribute("board", board);
+		
+		return "boardedit";
 	}
 	
 	@RequestMapping("/boardedit.do/{board_id}")
@@ -75,6 +77,7 @@ public class boardController {
 	
 	@RequestMapping("/boardview.do/{board_id}")
 	public String boardview(@PathVariable int board_id, Model model) {
+		
 		board_info board = mapper.view(board_id);
 		
 		model.addAttribute("board", board);
@@ -88,11 +91,20 @@ public class boardController {
 	@RequestMapping("/boardwrite.do")
 	public String boardwriteDo(board_info board) {
 		
+		board.toString();
+		
 		int board_id = mapper.write(board);
+		
+		System.out.println(board_id);
 		
 		// board_id
 		
 		return String.format("redirect:/boardview.do/%d", board_id);
 	}
 	
+	@RequestMapping("/boarddelete")
+	public String boarddelete() {
+		
+		return "redirect:/board";
+	}
 }

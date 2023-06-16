@@ -11,7 +11,7 @@
     </select>
     
     <insert id="vaccine" parameterType="kr.or.livestock.entity.vaccine_info">
-        insert into vaccine_info (livestock_id, vaccine_name, vaccine_cnt, vaccine_dt, vaccine_yn, reg_dt) values (#{livestock_id}, #{vaccine_name}, #{vaccine_cnt}, #{vaccine_dt}, #{vaccine_yn}, #{reg_dt})
+        insert into vaccine_info (livestock_id, vaccine_name, vaccine_cnt, vaccine_dt, vaccine_yn, reg_dt) values (#{livestock_id}, #{vaccine_name}, #{vaccine_cnt}, #{vaccine_dt}, "n", now())
     </insert>
 
     <insert id="infection" parameterType="kr.or.livestock.entity.infection_info">

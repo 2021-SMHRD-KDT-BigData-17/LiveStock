@@ -36,7 +36,7 @@ public class calanderController {
 		
 		for(int i = 0; i < list.size(); i++) {
 			
-			map.put(list.get(i).getLivestock_name(), list.get(i).getLivestock_cnt());
+			map.put(list.get(i).getLivestock_name(), list.get(i).getLivestock_id());
 //			list.get(i).getLivestock_name();
 //			list.get(i).getLivestock_cnt();
 		}

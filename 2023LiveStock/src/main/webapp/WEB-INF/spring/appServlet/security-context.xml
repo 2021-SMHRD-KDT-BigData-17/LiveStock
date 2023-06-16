@@ -18,8 +18,8 @@
           	<csrf disabled="false"/>
           	
           	
-          	<intercept-url pattern="/calandar.do" access="hasRole('ROLE_USER')" />
-          	<intercept-url pattern="/calandar" access="hasRole('ROLE_USER')" />
+          	<intercept-url pattern="/calander.do" access="hasRole('ROLE_USER')" />
+          	<intercept-url pattern="/calander" access="hasRole('ROLE_USER')" />
           	<intercept-url pattern="/livestockinfo.do" access="hasRole('ROLE_USER')" />
           	<intercept-url pattern="/livestockinfo" access="hasRole('ROLE_USER')" />
           	<intercept-url pattern="/register.do" access="isAnonymous()" />

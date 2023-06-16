@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.or.livestock.mapper.calandar_mapper">
+    
+    <resultMap type="kr.or.livestock.entity.livestock_info" id="loadCalandar">
+        
+    </resultMap>
+    
     <select id="load" resultMap="loadCalandar">
-        select * from livestock_info inner join vaccine_info on livestock_id inner join
+        select * from livestock_info inner join vaccine_info on livestock_info.livestock_id = vaccine_info.livestock_id inner join infection_info on livestock_info.livestock_id = infection_info.livestock_id
     </select>
 </mapper>

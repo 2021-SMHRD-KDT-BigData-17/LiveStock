@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,7 +25,7 @@
         <nav class="navbar">
             <div class="navbar_logo">
                 <i class="fa-solid fa-guarani-sign"></i>
-                <a href="/HTML/index.html">FRAM GUARD</a>
+                <a th:href="@{/}">FRAM GUARD</a>
             </div>
 
             <ul class="navbar_menu">
@@ -34,6 +34,7 @@
                 <li><a class="underline" th:href="@{/farming}">차량 출입 관리</a></li>
                 <li><a th:href="@{/board}">커뮤니티</a></li>
                 <button class = "binLogin-popup" sec:authorize="isAnonymous()"><a th:href="@{/login}">Login</a></button>
+                <button class = "binLogin-popup" sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></button>
             </ul>
             
             <a href="#" class="navbar_toggleBtn">

@@ -28,7 +28,7 @@
                 <li><a th:href="@{/farming}">차량 출입 관리</a></li>
                 <li><a class="underline" th:href="@{/board}">커뮤니티</a></li>
                 <button class = "binLogin-popup" sec:authorize="isAnonymous()"><a th:href="@{/login}">Login</a></button>
-                <button class = "binLogin-popup" sec:authorize="isAuthenticated()"><a th:href="@{/login}">Logout</a></button>
+                <button class = "binLogin-popup" sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></button>
             </ul>
             
             <a href="#" class="navbar_toggleBtn">

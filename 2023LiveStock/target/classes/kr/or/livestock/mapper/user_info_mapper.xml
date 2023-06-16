@@ -9,4 +9,8 @@
         insert into user_info (user_id, user_pw, user_name, user_gender, user_phone, user_farm_addr, user_joindate, admin_yn) values (#{user_id}, #{user_pw}, #{user_name}, #{user_gender}, #{user_phone}, #{user_farm_addr}, now(), 0)
     </insert>
     
+    <insert id="register" parameterType="kr.or.livestock.entity.livestock_info">
+        insert into livestock_info (livestock_name, livestock_cnt, livestock_etc, user_id) values (#{livestock_name}, #{livestock_cnt}, #{livestock_etc}, #{user_id})
+    </insert>
+    
 </mapper>

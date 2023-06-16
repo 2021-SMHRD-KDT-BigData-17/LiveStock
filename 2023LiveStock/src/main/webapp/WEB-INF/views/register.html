@@ -28,9 +28,9 @@
     </header>
     <div class="wrapper">
         <div class="form_box_register">
-            <form th:action="@{/register.do}" method="post" th:object="${user_info}">
+            <form th:action="@{/register.do}" method="post">
                 <h2>Register</h2>
-                <div class="user_info_wrapper">
+                <div class="user_info_wrapper" th:object="${user_info}">
 	                <label>아이디</label>
 	                <div class="input_box">
 	                    <input type="Id" name="user_id" required>
@@ -60,10 +60,10 @@
 	                    <input type="text" id="sample6_extraAddress" placeholder="참고항목">
 	                </div>
                 </div>
-                <div class="livestock_wrapper">
-                	<label>가축순번</label>
-	                <div class="input_box">
-	                    <input type="text" name="livestock_id" required>  
+                <div class="livestock_wrapper" th:object="${livestock_info}">
+                	<!-- <label>가축순번</label> -->
+	                <div class="input_box" style="visibility:hidden">
+	                    <input type="text" name="user_id" th:value="${#authentication.principal}" required>  
 	                </div>
 	                <label>축종</label>
 	                <div class="input_box">

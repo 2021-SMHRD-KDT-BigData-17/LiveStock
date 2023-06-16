@@ -76,11 +76,12 @@ public class mainController {
 	@RequestMapping("/register")
 	public void register(Model model) {
 		model.addAttribute("user_info", new user_info());
+		model.addAttribute("livestock", new livestock_info());
 //		model.addAttribute("addr", new addr());
 	}
 	
 	@RequestMapping("/register.do")
-	public String registerDo(user_info user) {
+	public String registerDo(user_info user, livestock_info livestock) {
 		
 		String addr = user.getAddr().getAddr1() +" "+ user.getAddr().getAddr2() +" "+ user.getAddr().getAddr3();
 		
@@ -94,6 +95,8 @@ public class mainController {
 		int n = mapper.sign_up(user);
 		
 		System.out.println(n);
+		
+		mapper.register(livestock);
 		
 		return "index";
 	}

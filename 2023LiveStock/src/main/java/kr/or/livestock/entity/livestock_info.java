@@ -16,4 +16,6 @@ public class livestock_info {
 	private vaccine_info vaccine;
 	private infection_info infection;
 	
+	private String calander;
+	
 }

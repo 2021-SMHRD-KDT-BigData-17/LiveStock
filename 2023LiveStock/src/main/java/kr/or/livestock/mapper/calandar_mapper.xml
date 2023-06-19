@@ -3,11 +3,16 @@
 <mapper namespace="kr.or.livestock.mapper.calandar_mapper">
     
     <resultMap type="kr.or.livestock.entity.livestock_info" id="loadCalandar">
-        
+        <association property="vaccine" javaType="kr.or.livestock.entity.vaccine_info">
+            
+        </association>
+        <association property="infection" javaType="kr.or.livestock.entity.infection_info">
+            
+        </association>
     </resultMap>
     
     <select id="load" resultMap="loadCalandar">
-        select * from livestock_info inner join vaccine_info on livestock_info.livestock_id = vaccine_info.livestock_id inner join infection_info on livestock_info.livestock_id = infection_info.livestock_id where livestock_info.user_id = #{user_id}
+        select vaccine_info.vaccine_dt, vaccine_info.vaccine_name, infection_info.infected_dt, infection_info.disease_name from livestock_info inner join vaccine_info on livestock_info.livestock_id = vaccine_info.livestock_id inner join infection_info on livestock_info.livestock_id = infection_info.livestock_id where livestock_info.user_id = #{user_id} and (year(vaccine_info.vaccine_dt) = #{year} or year(infection_info.infected_dt) =#{year}) and (month(vaccine_info.vaccine_dt)=#{month} or month(infection_info.infected_dt) =#{month})
     </select>
     
     <insert id="vaccine" parameterType="kr.or.livestock.entity.vaccine_info">
@@ -18,5 +23,8 @@
         insert into infection_info (livestock_id, disease_name, infected_cnt, infected_dt) values (#{livestock_id}, #{disease_name}, #{infected_cnt}, #{infected_dt})
     </insert>
     
+    <select id="find" resultType="kr.or.livestock.entity.livestock_info">
+        select livestock_id, livestock_name from livestock_info where user_id = #{user_id}
+    </select>
     
 </mapper>

@@ -41,8 +41,6 @@
             
         </http>
         
-        
-        
         <authentication-manager>
             <authentication-provider ref="userAuthProvider"/>
             <authentication-provider user-service-ref="userService"></authentication-provider>

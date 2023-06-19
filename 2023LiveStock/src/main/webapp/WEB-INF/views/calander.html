@@ -100,7 +100,7 @@
                 </div>
 
 
-                <form action="#" method="post" class="input-data">
+                <form th:action="@{/calander.do}" method="post" class="input-data">
                     <table  >
                         <tr>
                           
@@ -114,12 +114,11 @@
                             <td height="40" style="text-align: left;">
 
                                 
-                                <select>
+                                <select name="livestock_name">
                                         <option value="cow">소</option>
                                         <option value="pig">돼지</option>
-                                        <option value="chick">닭</option>
+                                        <option value="chicken">닭</option>
                                         <option value="duck">오리</option>
-                                    </select>
 
                                 </select>
                             </td>
@@ -149,7 +148,7 @@
                         <tr>
                             <td colspan="2">
                                 
-                                <select id="livestock-select">
+                                <select id="livestock-select" name="disease_name">
                                     
                                 </select>
                                

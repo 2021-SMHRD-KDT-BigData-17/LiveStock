@@ -61,7 +61,7 @@
                     <div class = "date" name="board_dt">작성일</div>
                     <div class = "count" name="board_views">조회</div>
                 </div>
-                <div th:each="b:${list}">
+                <div th:each="b:${board}">
                     <div class = "num" th:text="${b.board_id}">1</div>
                     <div class = "categori" th:text="${b.board_category}"></div>
                     <div class = "title"><a th:href="@{/boardview}" th:text="${b.board_title}"></a></div>

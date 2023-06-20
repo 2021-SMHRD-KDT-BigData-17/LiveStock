@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -34,6 +34,7 @@
     <li><a th:href="@{/farming}">차량 출입 관리</a></li>
     <li><a class="underline" th:href="@{/board}">커뮤니티</a></li>
     <button class = "binLogin-popup" sec:authorize="isAnonymous()"><a th:href="@{/login}">Login</a></button>
+    <button class = "binLogin-popup" sec:authorize="isAuthenticated()"><a th:href="@{/login}">Logout</a></button>
 </ul>
             
             <a href="#" class="navbar_toggleBtn">
@@ -63,22 +64,24 @@
                     <th width="150px">일자</th>
                     <th width="150px">차량번호</th>
                     <th width="150px">입문 시간</th>
-                    <th width="150px">출문 시간</th>
+                    <!-- <th width="150px">출문 시간</th> -->
                     <th>번호판 사진</th>
                     <th width="130px">비고</th>
             
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>2023.06.13</td>
-                    <td>167어 8085</td>
-                    <td>11:03</td>
-                    <td>18:09</td>
-                    <td>            
-                     
-                    <td></td>
+                <th:block th:if="${entrance_info != null}">
+                <tr th:each="l : ${entrance_info}">
+                    <td th:text="${l.entrance_dt}"></td>
+                    <td th:text="${l.vehicle_no}"></td>
+                    <td th:text="${l.entrance_time}"></td>
+                    <!-- <td th:text="${}"></td> -->
+                    <td th:text="${l.plate_photo}">            
+                    <td th:text="${l.enctrance_etc}"></td>
+                    <!-- <td th:text="${}"></td> -->
                 </tr>
+                </th:block>
          
                 </tbody>
             </table>

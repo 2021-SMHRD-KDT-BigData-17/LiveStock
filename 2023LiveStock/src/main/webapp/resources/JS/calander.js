@@ -70,7 +70,6 @@ const Calendar = {
         const before = document.querySelectorAll(".date");
         before.forEach(v => v.remove());
 
-        
         for (
             let i = -Calendar.getFirstDay(y, m) + 1;
             i <= Calendar.getLastdate(y, m);
@@ -87,10 +86,31 @@ const Calendar = {
             Calendar.$calendar.innerHTML += `
                 <div class="date ${hiddenDateClass} ${hasScheduleClass}">
                     <p>${i}</p>
-                    <div style="width:10px; height:10px;  border-radius:50%; background-color:red; margin:3px;"></div>
-                    <div style="width:10px; height:10px;  border-radius:50%; background-color:blue;  margin:3px;"></div>
+                `;
+            let str = parseInt(i);
+            let cntV;
+            let cntI;
+
+            if(vaccine_info[str] !== null){
+                cntV = vaccine_info[str][0];
+
+                for(let i = 0; i < cntV; i++)
+                    Calendar.$calendar.innerHTML +=`
+                        <div style="width:10px; height:10px;  border-radius:50%; background-color:red; margin:3px;" ></div>
+                        `;
+            }
+            
+            if(infection_info[str] !== null){
+                cntI = infection_info[str][0];
+
+                for(let i = 0; i < cntI; i++)
+                    Calendar.$calendar.innerHTML +=`
+                        <div style="width:10px; height:10px;  border-radius:50%; background-color:blue;  margin:3px;"></div>
+                        `;
+            }
+            calender.$calender.innerHTML +=`
                 </div>
-            `;
+                `;
         }        
         Calendar.evtHandle();
 

@@ -91,7 +91,7 @@ const Calendar = {
             let cntV;
             let cntI;
 
-            if(vaccine_info[str] !== null){
+            if(vaccine[str] !== null){
                 cntV = vaccine_info[str][0];
 
                 for(let i = 0; i < cntV; i++)
@@ -100,7 +100,7 @@ const Calendar = {
                         `;
             }
             
-            if(infection_info[str] !== null){
+            if(infection[str] !== null){
                 cntI = infection_info[str][0];
 
                 for(let i = 0; i < cntI; i++)

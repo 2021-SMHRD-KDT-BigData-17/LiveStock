@@ -20,9 +20,36 @@
     <link rel="stylesheet" href="/livestock/resources/CSS/calander.css">
 
     <script>
-    	const vaccine_info = JSON.parse([[${vaccine}]]);
-    	const infection_info = JSON.parse([[${infection}]]);
     
+    	let vaccine_info;
+    	let infection_info;
+    
+    	const vaccine = {};
+    	const infection = {};
+    	
+    	if([[${vaccine}]] !== null){
+    		vaccine_info = JSON.parse([[${vaccine}]])
+    		
+    		vaccine_info.forEach(e => {
+            let numDate = e.vaccine_dt
+            vaccine[numDate] !== null ? vaccine[numDate][0]++ : vaccine[numDate] = [1];
+            vaccine[numDate].add(`${e.vaccine_name}`)
+
+        })
+    		
+    	}else if([[${infection}]] !== null){
+    		infection_info = JSON.parse([[${infection}]])
+    		
+    		infection_info.forEach(e => {
+            let numDate = e.infected_dt
+            infection[numDate] !== null ? infection[numDate][0]++ : Array[numDate] = [1];
+            infection[numDate].add(`${e.disease_name}`)
+
+        })
+    		
+    	}
+    	
+    	
         $(document).ready(function() {
             $('#select').change(function() {
                 var result = $('#select option:selected').val();

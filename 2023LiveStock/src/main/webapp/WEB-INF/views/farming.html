@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,18 +25,16 @@
         <nav class="navbar">
             <div class="navbar_logo">
                 <i class="fa-solid fa-guarani-sign"></i>
-                <a th:href="@{/}">FRAM GUARD</a>
+                <a href="/HTML/index.html">FRAM GUARD</a>
             </div>
 
-            <ul class="navbar_menu">
-                <li><a th:href="@{/}">HOME</a></li>
-                <li><a th:href="@{/livestockinfo}">가축 정보</a></li>
-                <li><a th:href="@{/calander}">캘린더</a></li>
-                <li><a class="underline" th:href="@{/farming}">차량 출입 관리</a></li>
-                <li><a th:href="@{/board}">커뮤니티</a></li>
-                <button class = "binLogin-popup" sec:authorize="isAnonymous()"><a th:href="@{/login}">Login</a></button>
-                <button class = "binLogin-popup" sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></button>
-            </ul>
+<ul class="navbar_menu">
+    <li><a th:href="@{/}">HOME</a></li>
+    <li><a th:href="@{/calander}">캘린더</a></li>
+    <li><a th:href="@{/farming}">차량 출입 관리</a></li>
+    <li><a class="underline" th:href="@{/board}">커뮤니티</a></li>
+    <button class = "binLogin-popup" sec:authorize="isAnonymous()"><a th:href="@{/login}">Login</a></button>
+</ul>
             
             <a href="#" class="navbar_toggleBtn">
                 <i class="fa-solid fa-bars"></i>
@@ -49,7 +47,13 @@
 
 
         <div class="sidebar">
-    
+            
+            <div class="image-show">
+                <form action="#" method="post" id="image-upload">
+                    <input type="file" name="chooseFile">
+                    <input type="submit" value="등록" id="choose-btn">
+                </form>
+            </div>
             <button class="reload" onClick="window.location.reload()">새로고침</button>
         
             <table id = "entrance">
@@ -65,43 +69,18 @@
             
                 </tr>
                 </thead>
-                <tbody >
-                <th:block th:if="${entrance_info != null}">
-                <tr th:each="l : ${entrance_info}">
-                    <td th:text="${l.entrance_dt}"></td>
-                    <td th:text="${l.vehicle_no}"></td>
-                    <td th:text="${l.entrance_time}"></td>
-                    <td th:text="${l.enctrance_etc}"></td>
+                <tbody>
+                <tr>
+                    <td>2023.06.13</td>
+                    <td>167어 8085</td>
+                    <td>11:03</td>
+                    <td>18:09</td>
                     <td>            
-                        <div class="container">
-                            <div class="image-upload" id="image-upload">
-                    
-                                <form method="post" enctype="multipart/form-data">
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <input type="file" id="chooseFile" name="chooseFile" accept="image/*" onchange="loadFile(this)">
-                                    <br>
-                                    <p></p>
-                                </form>
-                    
-                                <div class="fileContainer">
-                                    <div class="fileInput">
-                                        <p>FILE NAME: </p>
-                                        <p id="fileName"></p>
-                                    </div>
-                                    <div class="buttonContainer">
-                                        <div class="submitButton" id="submitButton">SUBMIT</div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="image-show" id="image-show"></div>
-                        </div>
+                     
                     <td></td>
                 </tr>
-         		</th:block>
-         		
+         
                 </tbody>
-                
             </table>
             
             

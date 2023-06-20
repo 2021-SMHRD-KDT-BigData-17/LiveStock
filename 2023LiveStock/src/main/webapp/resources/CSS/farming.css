@@ -163,89 +163,27 @@ caption{
   width: 50%;
 }
 
-#entrance{
-  border-radius: 20px;
-}
 
-.button {
-  display: flex;
-  justify-content: center;
-}
-
-.container {
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-  text-align: left;
-}
-
-.image-upload {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.button {
-  display: flex;
-  justify-content: center;
-}
-
-
-.fileContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.fileInput {
-  display: flex;
-  align-items: center;
-  border-bottom: solid 2px black;
-  width: 60%;
-  height: 30px;
-}
-
-#fileName {
-  margin-left: 5px;
-}
-
-.buttonContainer {
-  width: 15%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 10px;
-  background-color: black;
-  color: white;
-  border-radius: 30px;
-  padding: 10px;
-  font-size: 0.8em;
-
+#choose-btn {
+  padding: 10px 15px;
+  background: white;
+  color: black;
+  border-radius: 10px;
+  border: none;
+  outline: none;
   cursor: pointer;
+  transition: background 0.15s ease-in-out,
+              color 0.15s ease-in-out;
+
+  text-align: center;
+}
+
+#choose-btn:hover{
+  background: #444;
+  color: white;
 }
 
 .image-show {
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  position: absolute;
-  width: 25%;
-  height: 25%;
-  margin: auto;
-  left: 55%;
-}
-
-.img {
-  position: absolute;
-}
-#chooseFile{
-  align-items: right;
-}
-
-element.style {
-  width: 50%;
-  height: 65%;
-  visibility: visible;
-  object-fit: contain;
+  width:400px;
+  position: fixed;
 }

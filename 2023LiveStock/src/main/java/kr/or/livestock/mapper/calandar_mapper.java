@@ -15,9 +15,14 @@ public interface calandar_mapper {
 
 	public List<livestock_info> load(Map<String, String> map);
 
-	public int vaccine(Optional<vaccine_info> vaccine);
+	public List<livestock_info> vaccine_info(Map<String, String> map);
+	
+	public List<livestock_info> infection_info(Map<String, String> map);
 
-	public int infection(Optional<infection_info> infection);
+	public int vaccine(vaccine_info vaccine);
+
+	public int infection(infection_info infection);
 
 	public List<livestock_info> find(String user_id);
+
 }

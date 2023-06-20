@@ -27,7 +27,8 @@
           	<intercept-url pattern="/login.do" access="isAnonymous()" />
           	<intercept-url pattern="/login" access="isAnonymous()" />
             <intercept-url pattern="/boardwrite" access="hasRole('ROLE_USER')" />
-            <intercept-url pattern="/**" access="permitAll" />
+            <intercept-url pattern="/" access="hasRole('ROLE_USER')" />
+            <intercept-url pattern="/**" access="permitAll()" />
             
             <form-login
             	username-parameter="user_id"
@@ -37,7 +38,7 @@
             	default-target-url="/"
             	/>
           	<!-- 로그아웃할 url 및 로그아웃성공시 이동할 url -->
-          	<logout logout-url="/logout" logout-success-url="/" />
+          	<logout logout-url="/logout" logout-success-url="/" invalidate-session="true" delete-cookies="JESSIONID" />
             
         </http>
         

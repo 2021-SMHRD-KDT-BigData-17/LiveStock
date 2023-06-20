@@ -2,6 +2,7 @@ package kr.or.livestock.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -31,7 +32,7 @@ public class farmingController {
 		
 		Object user_id = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		
-		entrance_info entrance = mapper.load((String)user_id);
+		List<entrance_info> entrance = mapper.load((String)user_id);
 		
 		model.addAttribute("entrance_info", entrance);
 	}

@@ -23,7 +23,7 @@ public class page {
 		if(this.end == 0) {this.end = 1;}
 		
 		this.page = page;
-		this.cPage = ((page - 1)/10) * 10;
+		this.cPage = (page - 1) * 10;
 		
 	}
 }

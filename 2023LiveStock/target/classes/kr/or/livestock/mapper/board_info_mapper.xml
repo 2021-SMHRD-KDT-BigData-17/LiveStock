@@ -6,7 +6,7 @@
         select * from board_info order by board_id desc limit #{page}, 10
     </select>
     
-    <insert id="write" parameterType="kr.or.livestock.entity.board_info" useGeneratedKeys="true" keyColumn="board_id">
+    <insert id="write" parameterType="kr.or.livestock.entity.board_info" useGeneratedKeys="true" keyColumn="board_id" keyProperty="board_id">
         insert into board_info (board_category, board_title, board_content, board_file, board_dt, user_id, board_views) values (#{board_category}, #{board_title}, #{board_content}, "file", now(), #{user_id}, 0)
     </insert>
 
@@ -16,7 +16,7 @@
     </select>
     
     <update id="edit" parameterType="kr.or.livestock.entity.board_info">
-        update board_info set(board_title=#{board_title}, board_content=#{board_content}, board_dt=now()) where board_id = #{board_id}
+        update board_info set board_title=#{board_title}, board_content=#{board_content}, board_dt=now() where board_id = #{board_id}
     </update>
     
     <select id="notice" resultType="kr.or.livestock.entity.board_info">

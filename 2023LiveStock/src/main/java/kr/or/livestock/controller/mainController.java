@@ -99,8 +99,8 @@ public class mainController {
 		return "index";
 	}
 	
-	@RequestMapping("/logout")
-	public void logout() {}
+//	@RequestMapping("/logout")
+//	public void logout() {}
 	
 	@RequestMapping("/livestockinfo")
 	public void livestockinfo() {}

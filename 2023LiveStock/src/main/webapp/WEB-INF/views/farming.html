@@ -65,12 +65,13 @@
             
                 </tr>
                 </thead>
-                <tbody>
-                <tr>
-                    <td>2023.06.13</td>
-                    <td>167어 8085</td>
-                    <td>11:03</td>
-                    <td>18:09</td>
+                <tbody >
+                <th:block th:if="${entrance_info != null}">
+                <tr th:each="l : ${entrance_info}">
+                    <td th:text="${l.entrance_dt}"></td>
+                    <td th:text="${l.vehicle_no}"></td>
+                    <td th:text="${l.entrance_time}"></td>
+                    <td th:text="${l.enctrance_etc}"></td>
                     <td>            
                         <div class="container">
                             <div class="image-upload" id="image-upload">
@@ -97,8 +98,10 @@
                         </div>
                     <td></td>
                 </tr>
-         
+         		</th:block>
+         		
                 </tbody>
+                
             </table>
             
             

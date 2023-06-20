@@ -14,6 +14,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.google.gson.Gson;
+import com.google.protobuf.Empty;
+
 import kr.or.livestock.entity.infection_info;
 import kr.or.livestock.entity.livestock_info;
 import kr.or.livestock.entity.vaccine_info;
@@ -50,6 +53,14 @@ public class calanderController {
 		
 		model.addAttribute("list", list);
 		
+		Gson gson = new Gson();
+		
+		List<livestock_info> vaccine = mapper.vaccine_info(map);
+		List<livestock_info> infection = mapper.infection_info(map);
+		
+		model.addAttribute("vaccine", gson.toJson(vaccine));
+		model.addAttribute("infection", gson.toJson(infection));
+		
 		Map<String, Integer> map2 = new HashMap<>();
 		
 		for(int i = 0; i < list.size(); i++) {
@@ -68,11 +79,15 @@ public class calanderController {
 		
 		
 		//date info
+		
+		
 	}
 	
 	@RequestMapping("/calander.do")
 	public String calanderDo(Optional<vaccine_info> vaccine, Optional<infection_info> infection, @RequestParam String livestock_name) {
 //		vaccine != null ? vaccine : infection
+		
+		System.out.println(livestock_name);
 		
 		Object user_id = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		
@@ -87,12 +102,14 @@ public class calanderController {
 			}
 		}
 		
-		if(vaccine != null) {
+		if(vaccine.isPresent()) {
 			vaccine.get().setLivestock_id(livestock_id);
-			mapper.vaccine(vaccine);
-		}else {
+			mapper.vaccine(vaccine.get());
+		}else if(infection.isPresent()) {
 			infection.get().setLivestock_id(livestock_id);
-			mapper.infection(infection);
+			mapper.infection(infection.get());
+		}else {
+			System.out.println("F");
 		}
 		
 //		int check = vaccine != null ? mapper.vaccine(vaccine) : mapper.infection(infection);

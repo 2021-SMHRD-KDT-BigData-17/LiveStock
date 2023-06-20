@@ -99,7 +99,7 @@ public class boardController {
 		
 		// board_id
 		
-		return String.format("redirect:/boardview.do/%d", board_id);
+		return String.format("redirect:/boardview.do/%d", board.getBoard_id());
 	}
 	
 	@RequestMapping("/boarddelete")

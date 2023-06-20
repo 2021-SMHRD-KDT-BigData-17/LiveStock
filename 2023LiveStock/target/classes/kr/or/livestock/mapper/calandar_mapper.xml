@@ -11,8 +11,25 @@
         </association>
     </resultMap>
     
-    <select id="load" resultMap="loadCalandar">
+    <resultMap type="kr.or.livestock.entity.livestock_info" id="loadVaccine">
+        <association javaType="kr.or.livestock.entity.vaccine_info" property="vaccine"></association>
+    </resultMap>
+    
+    <resultMap type="kr.or.livestock.entity.livestock_info" id="loadInfection">
+		<association javaType="kr.or.livestock.entity.infection_info" property="infection"></association>        
+    </resultMap>
+    
+    
+    <select id="load" resultMap="loadCalandar" parameterType="Map">
         select vaccine_info.vaccine_dt, vaccine_info.vaccine_name, infection_info.infected_dt, infection_info.disease_name from livestock_info inner join vaccine_info on livestock_info.livestock_id = vaccine_info.livestock_id inner join infection_info on livestock_info.livestock_id = infection_info.livestock_id where livestock_info.user_id = #{user_id} and (year(vaccine_info.vaccine_dt) = #{year} or year(infection_info.infected_dt) =#{year}) and (month(vaccine_info.vaccine_dt)=#{month} or month(infection_info.infected_dt) =#{month})
+    </select>
+    
+    <select id="vaccine_info" resultMap="loadVaccine" parameterType="Map">
+        select dayofmonth(vaccine_info.vaccine_dt), vaccine_info.vaccine_name from livestock_info inner join vaccine_info on livestock_info.livestock_id = vaccine_info.livestock_id where livestock_info.user_id = #{user_id} and year(vaccine_info.vaccine_dt) = #{year} and month(vaccine_info.vaccine_dt) = #{month} order by vaccine_info.vaccine_dt
+    </select>
+    
+    <select id="infection_info" resultMap="loadInfection" parameterType="Map">
+        select dayofmonth(infection_info.infected_dt), infection_info.disease_name from livestock_info inner join infection_info on livestock_info.livestock_id = infection_info.livestock_id where livestock_info.user_id = #{user_id} and year(infection_info.infected_dt) = #{year} and month(infection_info.infected_dt) = #{month} order by infection_info.infected_dt
     </select>
     
     <insert id="vaccine" parameterType="kr.or.livestock.entity.vaccine_info">

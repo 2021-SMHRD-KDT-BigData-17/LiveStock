@@ -20,6 +20,9 @@
     <link rel="stylesheet" href="/livestock/resources/CSS/calander.css">
 
     <script>
+    	const vaccine_info = JSON.parse([[${vaccine}]]);
+    	const infection_info = JSON.parse([[${infection}]]);
+    
         $(document).ready(function() {
             $('#select').change(function() {
                 var result = $('#select option:selected').val();

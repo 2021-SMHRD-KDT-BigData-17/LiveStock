@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -38,8 +39,8 @@ public class calanderController {
 		
 //		date.
 		
-		String year = Integer.toBinaryString(date.getYear());
-		String month = date.getMonth().toString();
+		String year = Integer.toString(date.getYear());
+		String month = Integer.toString(date.getMonthValue());
 		
 //		String calander = null;
 		
@@ -48,6 +49,8 @@ public class calanderController {
 		map.put("user_id", (String)user_id);
 		map.put("year", year);
 		map.put("month", month);
+		
+		System.out.println((String)user_id +" "+ year +" "+ month);
 		
 		List<livestock_info> list = mapper.load(map); // user_id, calender date
 		
@@ -84,7 +87,7 @@ public class calanderController {
 	}
 	
 	@RequestMapping("/calander.do")
-	public String calanderDo(Optional<vaccine_info> vaccine, Optional<infection_info> infection, @RequestParam String livestock_name) {
+	public String calanderDo(vaccine_info vaccine, infection_info infection, @RequestParam String livestock_name) {
 //		vaccine != null ? vaccine : infection
 		
 		System.out.println(livestock_name);
@@ -96,18 +99,24 @@ public class calanderController {
 		int livestock_id = 0;
 		
 		for(int i = 0; i < livestock.size(); i++) {
-			if(livestock.get(i).getLivestock_name() == livestock_name) {
+			System.out.println("start");
+			if(livestock.get(i).getLivestock_name().equals(livestock_name)) {
 				livestock_id = livestock.get(i).getLivestock_id();
+				System.out.println("break : " + livestock_id);
 				break;
 			}
 		}
 		
-		if(vaccine.isPresent()) {
-			vaccine.get().setLivestock_id(livestock_id);
-			mapper.vaccine(vaccine.get());
-		}else if(infection.isPresent()) {
-			infection.get().setLivestock_id(livestock_id);
-			mapper.infection(infection.get());
+		System.out.println(livestock_id);
+		
+		if(vaccine == null) {
+			System.out.println("vaccine");
+			vaccine.setLivestock_id(livestock_id);
+			mapper.vaccine(vaccine);
+		}else if(infection != null) {
+			System.out.println("infection");
+			infection.setLivestock_id(livestock_id);
+			mapper.infection(infection);
 		}else {
 			System.out.println("F");
 		}

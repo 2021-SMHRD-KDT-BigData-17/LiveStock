@@ -87,12 +87,12 @@ const Calendar = {
                 <div class="date ${hiddenDateClass} ${hasScheduleClass}">
                     <p>${i}</p>
                 `;
-            let str = parseInt(i);
+            let str = i.toString();
             let cntV;
             let cntI;
 
             if(vaccine[str] !== null){
-                cntV = vaccine_info[str][0];
+                cntV = vaccine[str][0];
 
                 for(let i = 0; i < cntV; i++)
                     Calendar.$calendar.innerHTML +=`
@@ -101,14 +101,14 @@ const Calendar = {
             }
             
             if(infection[str] !== null){
-                cntI = infection_info[str][0];
+                cntI = infection[str][0];
 
                 for(let i = 0; i < cntI; i++)
                     Calendar.$calendar.innerHTML +=`
                         <div style="width:10px; height:10px;  border-radius:50%; background-color:blue;  margin:3px;"></div>
                         `;
             }
-            calender.$calender.innerHTML +=`
+            Calender.$calender.innerHTML +=`
                 </div>
                 `;
         }        

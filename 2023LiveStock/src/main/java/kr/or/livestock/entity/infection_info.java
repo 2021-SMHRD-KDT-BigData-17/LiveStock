@@ -13,4 +13,10 @@ public class infection_info {
 	private int infected_cnt;
 	private String infected_dt;
 	
+	@Override
+	public String toString() {
+		return "infection_info [infection_id=" + infection_id + ", livestock_id=" + livestock_id + ", disease_name="
+				+ disease_name + ", infected_cnt=" + infected_cnt + ", infected_dt=" + infected_dt + "]";
+	}
+	
 }

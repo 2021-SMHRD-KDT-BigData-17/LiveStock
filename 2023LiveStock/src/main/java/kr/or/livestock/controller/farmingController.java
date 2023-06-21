@@ -27,14 +27,58 @@ public class farmingController {
 	entrance_info_mapper mapper;
 	
 	@RequestMapping("/farming")
-	public void farming(Model model) {
+	public void farming(@RequestParam(required = false) Integer cnt, Model model) {
 		// user_id
+		
+		int num = cnt != null ? cnt : 0;
+		
+		entrance_info info = new entrance_info();
+		
+		switch(num) {
+//		case 0:
+//			
+//			info.setVehicle_no("");
+//			info.setPlate_photo("");
+//			info.setEntrance_dt();
+//			info.setEntrance_time();
+//			info.setEnctrance_etc();
+//			
+//			mapper.in(info);
+//			break;
+		case 1:
+			
+			info.setVehicle_no("11우1111");
+			info.setPlate_photo("/livestock/resources/carplate/1.jpg");	
+			mapper.in(info);
+			break;
+		case 2:
+			
+			info.setVehicle_no("22오2222");
+			info.setPlate_photo("/livestock/resources/carplate/26.jpg");	
+			mapper.in(info);
+			break;
+		case 3:
+	
+			info.setVehicle_no("33머3333");
+			info.setPlate_photo("/livestock/resources/carplate/47.jpg");	
+			mapper.in(info);
+			break;
+		case 4:
+		
+			mapper.out();
+			break;
+		}
+
+		num++;
+		
+		model.addAttribute("num", num);
 		
 		Object user_id = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		
 		List<entrance_info> entrance = mapper.load((String)user_id);
 		
 		model.addAttribute("entrance_info", entrance);
+		
 	}
 	
 	@RequestMapping("/farming.do")

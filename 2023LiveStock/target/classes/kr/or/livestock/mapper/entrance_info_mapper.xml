@@ -10,4 +10,12 @@
         update entrance_info set plate_photo = #{plate_photo} where entrance_id = #{entrance_id}
     </update>
     
+    <insert id="in" parameterType="kr.or.livestock.entity.entrance_info">
+        insert into entrance_info(vehicle_no, plate_photo, entrance_dt, entrance_type, entrance_time) values(#{vehicle_no}, #{plate_photo}, now(), "i", now())
+    </insert>
+    
+    <update id="out" parameterType="kr.or.livestock.entity.entrance_info">
+        update entrance_info set entrance_type = "o", enctrance_etc = now() where enctrance_etc = 22
+    </update>
+    
 </mapper>

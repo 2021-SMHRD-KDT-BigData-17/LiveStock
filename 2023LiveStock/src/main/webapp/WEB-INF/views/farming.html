@@ -50,7 +50,8 @@
         <div class="sidebar">
             
             <div class="image-show">
-                <form action="#" method="post" id="image-upload">
+                <form th:action="@{/farming}" method="post" id="image-upload">
+                    <input type="hidden" name="cnt" th:value="${num}">
                     <input type="file" name="chooseFile">
                     <input type="submit" value="등록" id="choose-btn">
                 </form>
@@ -72,12 +73,12 @@
                 </thead>
                 <tbody>
                 <th:block th:if="${entrance_info != null}">
-                <tr th:each="l : ${entrance_info}">
+                <tr th:each="l : ${entrance_info}" th:with="time=${l.entrance_time}">
                     <td th:text="${l.entrance_dt}"></td>
                     <td th:text="${l.vehicle_no}"></td>
                     <td th:text="${l.entrance_time}"></td>
                     <!-- <td th:text="${}"></td> -->
-                    <td th:text="${l.plate_photo}">            
+                    <td><img th:src="${l.plate_photo}"></td>           
                     <td th:text="${l.enctrance_etc}"></td>
                     <!-- <td th:text="${}"></td> -->
                 </tr>

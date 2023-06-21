@@ -68,11 +68,11 @@ public class boardController {
 	
 	@RequestMapping("/boardnotice")
 	public void boardnotice(Model model) {
-		String category = "notice";
+//		String category = "notice";
 		
-		List<board_info> list = mapper.notice(category);
+//		List<board_info> list = mapper.notice(category);
 		
-		model.addAttribute("list", list);
+//		model.addAttribute("list", list);
 	}
 	
 	@RequestMapping("/boardview.do/{board_id}")

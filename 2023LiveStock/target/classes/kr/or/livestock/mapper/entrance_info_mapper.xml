@@ -15,7 +15,7 @@
     </insert>
     
     <update id="out" parameterType="kr.or.livestock.entity.entrance_info">
-        update entrance_info set entrance_type = "o", enctrance_etc = now() where enctrance_etc = 22
+        update entrance_info set entrance_type = "o", enctrance_etc = now() where enctrance_etc = 68
     </update>
     
 </mapper>

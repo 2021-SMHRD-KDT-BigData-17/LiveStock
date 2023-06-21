@@ -132,7 +132,7 @@
             	<span th:text="${start}"></span>
             	<span th:text="${end}"></span>
             	<th:block th:if="*{page != 1}">
-	                <a th:href="@{/board/1}" class="bt first"><<</a>
+	                <!-- <a th:href="@{/board/1}" class="bt first"><<</a> -->
 	                <a th:href="@{/board/{a}(a=*{page} - 1)}" class="bt prev"><</a>
                 </th:block>
                 <th:block th:each="n : ${#numbers.sequence(start, end)}">
@@ -144,7 +144,7 @@
 	                <a href="#" class="num">5</a> -->
                 <th:block th:if="*{page != total}">
 	                <a th:href="@{/board/{a}(a=*{page} + 1)}" class="bt next">></a>
-	                <a th:href="@{/board/{a}(a=*{end})}" class="bt last">>></a>
+	                <!-- <a th:href="@{/board/{a}(a=*{end})}" class="bt last">>></a> -->
                 </th:block>
             </div>
             <div class="bt_wrap">
